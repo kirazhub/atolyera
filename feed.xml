@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Atölye RA Günlük — Kimono &amp; Sabahlık Rehberi</title>
+    <link>https://atolyera.com/gunluk</link>
+    <description>Lüks kimono ve sabahlık üzerine rehberler, hikâyeler ve stil önerileri. İpek değil TENCEL, giyilebilir sanat.</description>
+    <language>tr-TR</language>
+    <item>
+      <title>Kimono Nasıl Giyilir? Şık Kombin Önerileri</title>
+      <link>https://atolyera.com/kimono-nasil-giyilir</link>
+      <guid>https://atolyera.com/kimono-nasil-giyilir</guid>
+      <description>Günlükten davete, plajdan eve: lüks kimono kombin önerileri ve kuşak bağlama.</description>
+      <pubDate>Sun, 24 Aug 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Kimono ve Sabahlık Arasındaki Fark</title>
+      <link>https://atolyera.com/kimono-sabahlik-farki</link>
+      <guid>https://atolyera.com/kimono-sabahlik-farki</guid>
+      <description>Kimono ile sabahlık arasındaki kullanım, kesim ve stil farkları.</description>
+      <pubDate>Sun, 24 Aug 2026 09:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>İpek mi TENCEL mi? Lüks Kumaş Rehberi</title>
+      <link>https://atolyera.com/ipek-mi-tencel-mi</link>
+      <guid>https://atolyera.com/ipek-mi-tencel-mi</guid>
+      <description>İpek ve TENCEL karşılaştırması: konfor, etik ve dayanıklılık.</description>
+      <pubDate>Sun, 24 Aug 2026 10:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

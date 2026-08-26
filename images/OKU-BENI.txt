@@ -1,0 +1,12 @@
+Bu klasöre kimono fotoğraflarını şu isimlerle koy:
+
+  1.jpg  →  Kızıl Mermer   (deniz kenarı, pembe-bordo mermer, göz motifi)
+  2.jpg  →  Semavî         (lacivert gökyüzü, altın yıldızlar)
+  3.jpg  →  Gece Şehri     (Galata, kırmızı-lacivert, yağmurlu gece)
+  4.jpg  →  Gümüş Su       (gri-gümüş mermer, havuz kenarı)
+  5.jpg  →  Toprak         (yeşil-kiremit, taş avlu)
+  6.jpg  →  Taşkın         (renkli sıçramalar, sanat galerisi)
+
+Not: Dosya adları tam olarak böyle olmalı (küçük harf, .jpg).
+Yeni parçalar geldikçe 7.jpg, 8.jpg ... diye ekleyip söyle,
+siteye ben ekleyeceğim.

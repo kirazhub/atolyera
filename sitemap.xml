@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://atolyera.com/</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://atolyera.com/images/1.jpg</image:loc><image:title>Kızıl Mermer — TENCEL lüks kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/2.jpg</image:loc><image:title>Semavî — TENCEL kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/4.jpg</image:loc><image:title>Gümüş Su — lüks sabahlık</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/10.jpg</image:loc><image:title>Buğu — pastel kimono sabahlık</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://atolyera.com/kimono</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://atolyera.com/sabahlik</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://atolyera.com/gunluk</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atolyera.com/hakkimizda</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atolyera.com/kimono-nasil-giyilir</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atolyera.com/kimono-sabahlik-farki</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atolyera.com/ipek-mi-tencel-mi</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

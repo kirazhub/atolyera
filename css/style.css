@@ -1,0 +1,756 @@
+/* ============================================================
+   ATÖLYE RA — Editöryel Lüks
+   Renkler: fildişi #F5F1EA · grafit #1A1A1A · bordo #5C1A1B
+   ============================================================ */
+
+:root{
+  --ivory:#F5F1EA;
+  --ivory-2:#EDE7DC;
+  --graphite:#1A1A1A;
+  --graphite-soft:#2A2A2A;
+  --bordeaux:#5C1A1B;
+  --line:rgba(26,26,26,.18);
+  --serif-display:"Fraunces", Georgia, serif;
+  --serif-text:"Cormorant Garamond", Georgia, serif;
+  --sans:"Jost", system-ui, sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--ivory);
+  color:var(--graphite);
+  font-family:var(--serif-text);
+  font-size:18px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ display:block; max-width:100%; }
+
+/* ---------- NAVİGASYON ---------- */
+.nav{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:26px 40px;
+  mix-blend-mode:difference;
+  color:#fff;
+  transition:padding .4s ease;
+}
+.nav__logo{
+  font-family:var(--sans);
+  font-weight:500;
+  letter-spacing:.42em;
+  font-size:19px;
+  color:#fff;
+  text-decoration:none;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+}
+.nav__logo-img{
+  height:34px;
+  width:auto;
+  display:block;
+}
+.nav__links{
+  display:flex;
+  gap:38px;
+}
+.nav__links a{
+  font-family:var(--sans);
+  font-weight:300;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  font-size:12px;
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+  padding-bottom:4px;
+}
+.nav__links a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:0;
+  width:0; height:1px;
+  background:#fff;
+  transition:width .4s ease;
+}
+.nav__links a:hover::after{ width:100%; }
+
+.nav__menu{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav__menu span{
+  width:26px; height:1.5px;
+  background:#fff;
+  transition:.3s;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  height:100vh;
+  min-height:640px;
+  overflow:hidden;
+}
+.hero__media{
+  position:absolute;
+  inset:0;
+  background:var(--graphite) center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:slowZoom 14s ease-out forwards;
+}
+.hero__fallback{
+  font-family:var(--serif-display);
+  font-size:6vw;
+  letter-spacing:.3em;
+  color:rgba(245,241,234,.14);
+}
+@keyframes slowZoom{
+  from{ transform:scale(1.08); }
+  to{ transform:scale(1); }
+}
+.hero__overlay{
+  position:absolute;
+  left:0; right:0; bottom:12vh;
+  text-align:center;
+  color:#fff;
+  padding:0 24px;
+  z-index:2;
+  text-shadow:0 2px 24px rgba(0,0,0,.45);
+}
+.hero__eyebrow{
+  font-family:var(--sans);
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:.42em;
+  font-size:12px;
+  margin-bottom:22px;
+  opacity:.95;
+}
+.hero__title{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(48px,9vw,120px);
+  line-height:.98;
+  letter-spacing:.01em;
+}
+.hero__sub{
+  font-family:var(--serif-text);
+  font-weight:400;
+  font-size:clamp(16px,2vw,21px);
+  line-height:1.5;
+  letter-spacing:.04em;
+  margin-top:22px;
+  opacity:.95;
+}
+.hero__cta{
+  display:inline-block;
+  margin-top:34px;
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  font-size:12px;
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.6);
+  padding:16px 34px;
+  transition:.4s;
+}
+.hero__cta:hover{
+  background:#fff;
+  color:var(--graphite);
+}
+.hero::after{ /* alt karartma, yazı okunsun */
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.7) 100%);
+  z-index:1;
+}
+.hero__scroll{
+  position:absolute;
+  bottom:28px; left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#fff;
+  opacity:.8;
+  animation:bob 2.4s ease-in-out infinite;
+}
+@keyframes bob{ 0%,100%{ transform:translate(-50%,0);} 50%{ transform:translate(-50%,7px);} }
+
+/* ---------- MANİFESTO ---------- */
+.manifesto{
+  text-align:center;
+  padding:130px 24px 120px;
+  max-width:900px;
+  margin:0 auto;
+}
+.manifesto__mark{
+  font-family:var(--serif-display);
+  font-size:34px;
+  letter-spacing:.3em;
+  color:var(--bordeaux);
+  margin-bottom:36px;
+}
+.manifesto__logo{
+  height:64px;
+  width:auto;
+  margin:0 auto 40px;
+  display:block;
+}
+.manifesto__text{
+  font-family:var(--serif-text);
+  font-size:clamp(24px,3.4vw,38px);
+  font-weight:300;
+  line-height:1.5;
+}
+.manifesto__text em{
+  font-style:italic;
+  color:var(--bordeaux);
+}
+.manifesto__sign{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  font-size:12px;
+  margin-top:40px;
+  opacity:.6;
+}
+
+/* ---------- SANAT KÖKENİ / TEK PARÇA ---------- */
+.ethos{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:90px 40px;
+}
+.ethos__grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:56px;
+}
+.ethos__block{ max-width:440px; margin:0 auto; }
+.ethos__num{
+  font-family:var(--serif-display);
+  font-size:20px;
+  color:var(--bordeaux);
+  letter-spacing:.2em;
+}
+.ethos__title{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(26px,3.2vw,40px);
+  line-height:1.1;
+  margin:18px 0 20px;
+}
+.ethos__text{
+  font-size:19px;
+  font-weight:300;
+  line-height:1.7;
+  color:var(--graphite-soft);
+}
+
+/* ---------- BÖLÜM BAŞLIĞI ---------- */
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  padding:20px 24px 70px;
+}
+.section-head h2{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(30px,5vw,54px);
+  letter-spacing:.04em;
+}
+.section-head__line{
+  height:1px;
+  width:min(90px,12vw);
+  background:var(--line);
+}
+.section-sub{
+  text-align:center;
+  font-family:var(--serif-text);
+  font-style:italic;
+  font-size:clamp(18px,2.2vw,24px);
+  font-weight:300;
+  color:var(--graphite-soft);
+  margin:-44px auto 60px;
+  max-width:640px;
+  padding:0 24px;
+}
+
+/* ---------- HİKÂYE GEÇİŞLERİ (INTERLUDE) ---------- */
+.interlude{
+  text-align:center;
+  padding:150px 24px;
+  max-width:820px;
+  margin:0 auto;
+}
+.interlude--wide{ max-width:940px; }
+.interlude--dark{
+  max-width:none;
+  margin:0;
+  background:var(--graphite);
+  color:var(--ivory);
+}
+.interlude__line{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(26px,4vw,46px);
+  line-height:1.15;
+  letter-spacing:.01em;
+}
+.interlude__line--big{
+  font-size:clamp(40px,7vw,84px);
+  line-height:1.02;
+  margin-top:8px;
+}
+.interlude--dark .interlude__line--big{ color:var(--ivory); }
+.interlude__note{
+  font-family:var(--serif-text);
+  font-size:clamp(18px,2.2vw,22px);
+  font-weight:300;
+  line-height:1.75;
+  color:var(--graphite-soft);
+  max-width:520px;
+  margin:38px auto 0;
+}
+.interlude--dark .interlude__note{ color:rgba(245,241,234,.72); }
+.interlude__note--wide{ max-width:640px; }
+
+/* ---------- KOLEKSİYON PARÇALARI ---------- */
+.piece{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:0;
+  min-height:92vh;
+}
+.piece--right{ direction:rtl; }
+.piece--right .piece__info{ direction:ltr; }
+
+.piece__media{
+  align-self:stretch;
+  background:var(--ivory-2);
+  min-height:70vh;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.piece__pic{
+  align-self:stretch;
+  min-height:70vh;
+  display:block;
+  width:100%;
+  height:100%;
+}
+.piece__info{
+  padding:clamp(40px,7vw,110px);
+  max-width:560px;
+}
+.piece__no{
+  font-family:var(--sans);
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  font-size:12px;
+  color:var(--bordeaux);
+  margin-bottom:16px;
+}
+.piece__name{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(34px,4.6vw,58px);
+  line-height:1.02;
+  margin-bottom:26px;
+}
+.piece__story{
+  font-size:20px;
+  font-weight:300;
+  line-height:1.7;
+  margin-bottom:34px;
+  color:var(--graphite-soft);
+}
+.piece__story--muse{
+  font-style:italic;
+  font-size:18px;
+  line-height:1.75;
+  color:var(--graphite);
+  padding-left:20px;
+  border-left:2px solid var(--bordeaux);
+  margin-top:-14px;
+  margin-bottom:34px;
+}
+.piece__charm{
+  font-size:15px;
+  font-weight:300;
+  line-height:1.7;
+  color:var(--graphite-soft);
+  background:rgba(92,26,27,.04);
+  border:1px solid rgba(92,26,27,.15);
+  padding:18px 20px;
+  margin-bottom:34px;
+}
+.piece__charm span{
+  display:block;
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:11px;
+  color:var(--bordeaux);
+  margin-bottom:8px;
+}
+.piece__spec{
+  list-style:none;
+  border-top:1px solid var(--line);
+  margin-bottom:36px;
+}
+.piece__spec li{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+  font-size:16px;
+}
+.piece__spec li span{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:11px;
+  opacity:.55;
+  align-self:center;
+}
+.piece__cta{
+  display:inline-block;
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.26em;
+  font-size:12px;
+  text-decoration:none;
+  color:var(--graphite);
+  border:1px solid var(--graphite);
+  padding:15px 32px;
+  transition:.4s;
+}
+.piece__cta:hover{
+  background:var(--graphite);
+  color:var(--ivory);
+}
+
+/* ---------- MİRAS ---------- */
+.heritage{
+  background:var(--graphite);
+  color:var(--ivory);
+  padding:140px 24px;
+}
+.heritage__inner{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+}
+.heritage__title{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(32px,5vw,56px);
+  margin-bottom:44px;
+}
+.heritage__text{
+  font-size:clamp(19px,2.4vw,24px);
+  font-weight:300;
+  line-height:1.75;
+  margin-bottom:26px;
+  color:rgba(245,241,234,.82);
+}
+.heritage__text--accent{
+  color:var(--ivory);
+  font-style:italic;
+  font-size:clamp(22px,3vw,30px);
+  margin-top:14px;
+}
+
+/* ---------- İLETİŞİM ---------- */
+.contact{
+  text-align:center;
+  padding:140px 24px 130px;
+  max-width:720px;
+  margin:0 auto;
+}
+.contact__eyebrow{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:12px;
+  color:var(--bordeaux);
+  margin-bottom:22px;
+}
+.contact__title{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(34px,6vw,64px);
+  margin-bottom:26px;
+}
+.contact__text{
+  font-size:20px;
+  font-weight:300;
+  line-height:1.7;
+  margin-bottom:44px;
+  color:var(--graphite-soft);
+}
+.contact__actions{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.contact__btn{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:12px;
+  text-decoration:none;
+  color:var(--ivory);
+  background:var(--graphite);
+  padding:18px 34px;
+  transition:.4s;
+}
+.contact__btn:hover{ background:var(--bordeaux); }
+.contact__btn--ghost{
+  color:var(--graphite);
+  background:transparent;
+  border:1px solid var(--graphite);
+}
+.contact__btn--ghost:hover{
+  color:var(--ivory);
+  background:var(--graphite);
+}
+
+/* ---------- LANDING (kimono/sabahlık sayfaları) ---------- */
+.lp-hero{
+  padding:180px 24px 70px;
+  text-align:center;
+  max-width:840px;
+  margin:0 auto;
+}
+.lp-hero h1{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(38px,6vw,72px);
+  line-height:1.04;
+  margin-bottom:24px;
+}
+.lp-hero p{
+  font-size:clamp(18px,2.3vw,23px);
+  font-weight:300;
+  line-height:1.7;
+  color:var(--graphite-soft);
+}
+.lp-body{
+  max-width:760px;
+  margin:0 auto;
+  padding:20px 24px 90px;
+}
+.lp-body h2{
+  font-family:var(--serif-display);
+  font-weight:300;
+  font-size:clamp(26px,3.4vw,40px);
+  margin:56px 0 18px;
+}
+.lp-body p{
+  font-size:18px;
+  font-weight:300;
+  line-height:1.8;
+  color:var(--graphite-soft);
+  margin-bottom:18px;
+}
+.lp-body a{ color:var(--bordeaux); }
+.lp-cta{
+  display:inline-block;
+  margin-top:14px;
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.26em;
+  font-size:12px;
+  text-decoration:none;
+  color:var(--ivory);
+  background:var(--graphite);
+  padding:18px 34px;
+  transition:.4s;
+}
+.lp-cta:hover{ background:var(--bordeaux); }
+
+/* ---------- SSS ---------- */
+.faq{
+  max-width:820px;
+  margin:0 auto;
+  padding:120px 24px 40px;
+}
+.faq__list{ margin-top:10px; }
+.faq__item{
+  border-bottom:1px solid var(--line);
+  padding:8px 0;
+}
+.faq__item summary{
+  font-family:var(--serif-display);
+  font-weight:400;
+  font-size:clamp(19px,2.4vw,26px);
+  padding:20px 40px 20px 0;
+  cursor:pointer;
+  list-style:none;
+  position:relative;
+  transition:color .3s;
+}
+.faq__item summary::-webkit-details-marker{ display:none; }
+.faq__item summary::after{
+  content:"+";
+  position:absolute;
+  right:4px; top:50%;
+  transform:translateY(-50%);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:26px;
+  color:var(--bordeaux);
+  transition:transform .3s;
+}
+.faq__item[open] summary::after{ content:"–"; }
+.faq__item summary:hover{ color:var(--bordeaux); }
+.faq__item p{
+  font-size:18px;
+  font-weight:300;
+  line-height:1.75;
+  color:var(--graphite-soft);
+  padding:0 40px 24px 0;
+}
+.faq__item a{ color:var(--bordeaux); }
+
+/* ---------- ALT BİLGİ ---------- */
+.footer{
+  text-align:center;
+  padding:70px 24px 60px;
+  border-top:1px solid var(--line);
+}
+.footer__logo{
+  font-family:var(--serif-display);
+  font-size:26px;
+  letter-spacing:.3em;
+  color:var(--bordeaux);
+  margin-bottom:18px;
+}
+.footer__logo-img{
+  height:46px;
+  width:auto;
+  margin:0 auto 22px;
+  display:block;
+  opacity:.9;
+}
+.footer__line{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:12px;
+  margin-bottom:10px;
+}
+.footer__nav{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:11px;
+  margin-bottom:16px;
+}
+.footer__nav a{
+  color:var(--graphite);
+  text-decoration:none;
+  opacity:.7;
+  transition:opacity .3s;
+}
+.footer__nav a:hover{ opacity:1; color:var(--bordeaux); }
+.footer__fine{
+  font-family:var(--sans);
+  font-size:11px;
+  letter-spacing:.12em;
+  opacity:.5;
+}
+
+/* ---------- ORTAYA ÇIKMA ANİMASYONU ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(34px);
+  transition:opacity 1s ease, transform 1s ease;
+}
+.reveal.is-in{
+  opacity:1;
+  transform:none;
+}
+
+/* ---------- MOBİL ---------- */
+@media (max-width:860px){
+  .nav{ padding:18px 20px; }
+  .nav__logo{ font-size:16px; letter-spacing:.34em; }
+  .nav__logo-img{ height:26px; }
+  .nav__menu{ display:flex; }
+  .nav__links{
+    position:fixed;
+    inset:0;
+    background:var(--graphite);
+    mix-blend-mode:normal;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:36px;
+    transform:translateY(-100%);
+    transition:transform .5s ease;
+  }
+  .nav__links.is-open{ transform:translateY(0); }
+  .nav__links a{ font-size:18px; letter-spacing:.3em; color:#fff; }
+
+  .hero__sub{ font-size:15px; }
+  .hero__cta{ padding:14px 28px; }
+
+  .piece,
+  .piece--right{
+    grid-template-columns:1fr;
+    direction:ltr;
+    min-height:auto;
+  }
+  .piece__media{ min-height:72vh; }
+  .piece__info{ padding:44px 24px 68px; max-width:none; }
+  .piece__story{ font-size:18px; }
+  .piece__cta{ padding:16px 30px; }
+
+  .ethos{ padding:64px 24px; }
+  .ethos__grid{ grid-template-columns:1fr; gap:44px; }
+  .ethos__block{ text-align:center; }
+
+  .interlude{ padding:96px 22px; }
+  .section-sub{ margin:-24px auto 44px; }
+  .contact__btn{ width:100%; text-align:center; padding:18px 20px; }
+}
+
+@media (max-width:420px){
+  .hero__title{ font-size:44px; }
+  .piece__media{ min-height:64vh; }
+  .manifesto{ padding:96px 22px 88px; }
+}
