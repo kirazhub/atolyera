@@ -3,13 +3,30 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://atolyera.com/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://atolyera.com/images/1.jpg</image:loc><image:title>Kızıl Mermer — TENCEL lüks kimono</image:title></image:image>
     <image:image><image:loc>https://atolyera.com/images/2.jpg</image:loc><image:title>Semavî — TENCEL kimono</image:title></image:image>
     <image:image><image:loc>https://atolyera.com/images/4.jpg</image:loc><image:title>Gümüş Su — lüks sabahlık</image:title></image:image>
     <image:image><image:loc>https://atolyera.com/images/10.jpg</image:loc><image:title>Buğu — pastel kimono sabahlık</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/talisman-1.jpg</image:loc><image:title>Gül Şafağı — üzerine atılan TENCEL tılsım kaftanı</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/talisman-2.jpg</image:loc><image:title>Yıldız Örtüsü — üzerine atılan TENCEL tılsım kaftanı</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/talisman-3.jpg</image:loc><image:title>Güneş Vitrayı — üzerine atılan TENCEL tılsım mantosu</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/talisman-6.jpg</image:loc><image:title>Hilal Duası — altın el nakışlı TENCEL tılsım mantosu</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/talisman-7.jpg</image:loc><image:title>Koruyucu Göz — sırt işlemeli TENCEL tılsım örtüsü</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-sembol-2.png</image:loc><image:title>Koruyan Göz tılsımı — nazara karşı koruma</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-sembol-3.png</image:loc><image:title>Ejderin Nefesi tılsımı — güç ve dönüşüm</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-sembol-5.png</image:loc><image:title>Yön Yıldızı tılsımı — kararlılık ve hedef</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-sembol-8.png</image:loc><image:title>Lotus Doğuşu tılsımı — yenilenme ve yeni başlangıç</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-1.jpg</image:loc><image:title>Gece Sarmalı — Denge Hilali tılsımlı TENCEL kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-2.jpg</image:loc><image:title>Sırtındaki Bekçi — Koruyan Göz tılsımlı TENCEL kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-3.jpg</image:loc><image:title>Alacakaranlık Nefesi — Ejderin Nefesi tılsımlı TENCEL kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-4.jpg</image:loc><image:title>Bambu Yemini — Toprak Ayı tılsımlı TENCEL kaftan</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-5.jpg</image:loc><image:title>Çelik Yıldızı — Yön Yıldızı tılsımlı TENCEL kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-6.jpg</image:loc><image:title>Sabah Sisi — Sisin Sırrı tılsımlı TENCEL kaftan</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-7.jpg</image:loc><image:title>Yolcunun Mührü — Dört Kapı tılsımlı TENCEL kimono</image:title></image:image>
+    <image:image><image:loc>https://atolyera.com/images/tilsim-seri-8.jpg</image:loc><image:title>Mermer Doğuşu — Lotus Doğuşu tılsımlı TENCEL kaftan</image:title></image:image>
   </url>
   <url>
     <loc>https://atolyera.com/kimono</loc>

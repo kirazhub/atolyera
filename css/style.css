@@ -404,6 +404,10 @@ img{ display:block; max-width:100%; }
   margin-top:-14px;
   margin-bottom:34px;
 }
+.collection--talisman,
+.collection--series{
+  border-top:1px solid rgba(26,26,26,.09);
+}
 .piece__charm{
   font-size:15px;
   font-weight:300;
@@ -753,4 +757,94 @@ img{ display:block; max-width:100%; }
   .hero__title{ font-size:44px; }
   .piece__media{ min-height:64vh; }
   .manifesto{ padding:96px 22px 88px; }
+}
+
+/* ---------- TILSIMLARIN DİLİ ---------- */
+.talismans{
+  padding:130px 24px 40px;
+  border-top:1px solid rgba(26,26,26,.09);
+}
+.talisman-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:56px 40px;
+}
+.talisman{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.talisman__glyph{
+  height:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:22px;
+}
+.talisman__glyph img{
+  max-height:230px;
+  width:auto;
+  max-width:100%;
+  opacity:.92;
+  transition:transform .5s ease, opacity .5s ease;
+}
+.talisman:hover .talisman__glyph img{ transform:translateY(-4px); opacity:1; }
+.talisman__no{
+  font-family:var(--sans);
+  letter-spacing:.34em;
+  font-size:12px;
+  color:var(--bordeaux);
+  margin-bottom:8px;
+}
+.talisman__name{
+  font-family:var(--serif-display);
+  font-weight:400;
+  font-size:24px;
+  letter-spacing:.02em;
+  margin-bottom:14px;
+}
+.talisman__story{
+  font-family:var(--serif-text);
+  font-size:16px;
+  line-height:1.7;
+  color:var(--graphite-soft);
+  margin-bottom:12px;
+}
+.talisman__bring{
+  font-family:var(--serif-text);
+  font-style:italic;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--graphite);
+  margin-bottom:16px;
+}
+.talisman__meaning{
+  font-family:var(--sans);
+  font-size:12.5px;
+  line-height:1.6;
+  letter-spacing:.02em;
+  color:var(--graphite-soft);
+  padding-top:14px;
+  border-top:1px solid rgba(92,26,27,.18);
+  width:100%;
+}
+.talisman__meaning span{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:10.5px;
+  color:var(--bordeaux);
+  margin-bottom:5px;
+}
+@media (max-width:980px){
+  .talisman-grid{ grid-template-columns:repeat(2,1fr); gap:52px 36px; }
+}
+@media (max-width:560px){
+  .talismans{ padding:96px 22px 30px; }
+  .talisman-grid{ grid-template-columns:1fr; gap:64px; max-width:420px; }
+  .talisman__glyph{ height:200px; }
+  .talisman__glyph img{ max-height:200px; }
 }
