@@ -19,7 +19,7 @@
       <a href="<?= url('/yasal/cerez') ?>">Çerez</a>
     </p>
     <p class="footer__line"><?= e(config('company.title')) ?></p>
-    <p class="footer__fine">İpek değil, TENCEL. © <?= date('Y') ?> Atölye RA · atolyera.com</p>
+    <p class="footer__fine">İpek saten, saten, viskon ve TENCEL üzerine giyilebilir sanat. © <?= date('Y') ?> Atölye RA · atolyera.com</p>
   </footer>
 
   <?php if (config('whatsapp.contact_enabled')): ?>

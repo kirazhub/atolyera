@@ -297,3 +297,10 @@
 }
 .wa-float:hover{ transform:scale(1.08); background:#1da851; }
 @media (max-width:560px){ .wa-float{ width:52px; height:52px; right:16px; bottom:16px; } }
+
+/* Ana sayfa kumaş satırı */
+.hero-fabrics{
+  font-family:var(--sans); font-size:12px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--bordeaux); margin:18px auto 0;
+  max-width:640px; line-height:1.9;
+}

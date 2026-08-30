@@ -11,9 +11,11 @@ $tilsim   = array_slice(products_all('seri'), 0, 3);
 <section class="page-hero">
   <p class="page-hero__kicker">Giyilebilir Sanat</p>
   <h1 class="page-hero__title">Aynısı bir daha doğmaz</h1>
-  <p class="page-hero__intro">Yağlı boya tablolardan doğan desenler, elde işlenmiş kumaşlar.
-  İpek değil TENCEL; her parça bir imza, her sırt bir tuval.</p>
-  <p style="margin-top:30px;">
+  <p class="page-hero__intro">Yağlı boya tablolardan doğan desenler; <strong>ipek saten, saten ve viskon</strong>
+  üzerine elde işlenir. Tılsım serisi ise <strong>TENCEL</strong> üzerine nakışla, <strong>30’da bir üretilen</strong>
+  sınırlı bir edisyondur — her parça bir imza, her sırt bir tuval.</p>
+  <p class="hero-fabrics">İpek Saten · Saten · Viskon · Viskon Şifon &nbsp;|&nbsp; TENCEL — sınırlı tılsım edisyonu (30’da 1)</p>
+  <p style="margin-top:26px;">
     <a href="<?= url('/urunler') ?>" class="btn btn--solid">Koleksiyonu Keşfet</a>
   </p>
 </section>
