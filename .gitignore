@@ -2,3 +2,7 @@
 .DS_Store
 node_modules
 *.log
+
+# PHP mağaza — çalışma zamanı veritabanı (sunucuda üretilir)
+php/data/*.sqlite
+php/data/*.sqlite-*

@@ -1,0 +1,51 @@
+====================================================================
+  ATÖLYE RA — PHP MAĞAZA · KURULUM (yalnızca senin yapacakların)
+====================================================================
+
+Bu klasör (php/) TAM ÇALIŞAN mağazadır. Sana kalan sadece 5 küçük adım:
+
+--------------------------------------------------------------------
+ADIM 1 — HOSTING AL (PHP + SQLite destekli, cPanel)
+--------------------------------------------------------------------
+• Öneri: Natro / Turhost / Hostinger / Guzel Hosting (aylık düşük ücret).
+• "PHP 8+ ve SQLite destekli paylaşımlı hosting" yeterli.
+• Bir e-posta hesabı da açılır: art@atolyera.com (SMTP için lazım).
+
+--------------------------------------------------------------------
+ADIM 2 — DOSYALARI YÜKLE
+--------------------------------------------------------------------
+• Bu "php" klasörünün İÇİNDEKİ her şeyi hosting'in "public_html"
+  klasörüne yükle (php klasörünü değil, içindekileri).
+• data/ klasörünün yazılabilir (755/775) olduğundan emin ol.
+
+--------------------------------------------------------------------
+ADIM 3 — BİLGİLERİ DOLDUR  (includes/config.php dosyası)
+--------------------------------------------------------------------
+Dosyayı aç, şu {{...}} alanlarını doldur:
+  • company.mersis   → MERSİS numaran (e-Devlet > Ticaret Sicil)
+  • company.phone    → müşteri telefonun
+  • smtp.enabled     → true  YAP
+  • smtp.host/username/password → hosting mail bilgilerin
+  • payment.bank_info → IBAN ve hesap adın (havale ile ödeme için)
+
+--------------------------------------------------------------------
+ADIM 4 — KURULUMU ÇALIŞTIR
+--------------------------------------------------------------------
+• Tarayıcıdan bir kez aç:  https://atolyera.com/setup.php
+• "Kurulum tamam" yazınca:  setup.php dosyasını SUNUCUDAN SİL.
+• Yönetim paneli:  https://atolyera.com/admin/
+     kullanıcı: admin    şifre: atolyera-2026
+     (Girer girmez "Şifre" menüsünden değiştir.)
+
+--------------------------------------------------------------------
+ADIM 5 — ALAN ADINI BAĞLA (DNS)
+--------------------------------------------------------------------
+• atolyera.com'u yeni hosting'e yönlendir (hosting sana A kaydı /
+  nameserver verir). Bu adımda bana söyle, birlikte yapalım.
+
+====================================================================
+NOT: Ödeme şu an "havale/EFT" olarak çalışır. İstersen sonra
+iyzico kredi kartı entegrasyonunu ekleriz (config > payment).
+Her yeni sipariş: veritabanına kaydedilir + sana ve müşteriye
+e-posta gider + panelde "Siparişler"de görünür.
+====================================================================

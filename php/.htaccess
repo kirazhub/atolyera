@@ -1,0 +1,36 @@
+# Atölye RA — Apache / cPanel yapılandırması
+
+Options -Indexes
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # RewriteBase /            # alt klasördeyse burayı ayarla (örn. /magaza/)
+
+    # Gerçek dosya/dizin ise dokunma (css, js, images, setup.php...)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Temiz URL'ler
+    RewriteRule ^urunler/?$                 products.php            [L]
+    RewriteRule ^kategori/([a-z0-9-]+)/?$   category.php?slug=$1     [L,QSA]
+    RewriteRule ^urun/([a-z0-9-]+)/?$       product.php?slug=$1      [L,QSA]
+    RewriteRule ^sepet/?$                   basket.php              [L]
+    RewriteRule ^sepet-islem/?$             cart-action.php         [L]
+    RewriteRule ^odeme/?$                   checkout.php            [L]
+    RewriteRule ^siparis-tamam/?$           order-success.php       [L,QSA]
+    RewriteRule ^yasal/([a-z0-9-]+)/?$      legal/$1.php            [L,QSA]
+</IfModule>
+
+# Veritabanı ve seed dosyasını web'den gizle
+<FilesMatch "\.(sqlite|sqlite-wal|sqlite-shm|json)$">
+    Require all denied
+</FilesMatch>
+
+# Güvenlik başlıkları
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
