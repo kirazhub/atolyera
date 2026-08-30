@@ -313,6 +313,7 @@
 }
 
 /* Çerez onay banner */
+.cookie[hidden]{ display:none !important; }
 .cookie{ position:fixed; left:16px; right:16px; bottom:16px; z-index:70; max-width:640px; margin:0 auto;
   background:var(--graphite); color:var(--ivory); display:flex; gap:16px; align-items:center;
   justify-content:space-between; padding:14px 18px; font-family:var(--sans); font-size:13px;
