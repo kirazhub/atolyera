@@ -17,6 +17,7 @@ $routes = [
     '#^/urunler/?$#'               => '/products.php',
     '#^/kategori/([a-z0-9-]+)/?$#' => '/category.php?slug=$1',
     '#^/urun/([a-z0-9-]+)/?$#'     => '/product.php?slug=$1',
+    '#^/ozel-tasarim/?$#'          => '/ozel-tasarim.php',
     '#^/sepet/?$#'                 => '/basket.php',
     '#^/sepet-islem/?$#'          => '/cart-action.php',
     '#^/odeme/?$#'                => '/checkout.php',

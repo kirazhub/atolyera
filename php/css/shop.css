@@ -365,3 +365,103 @@
 .footer__admin a{ font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--graphite-soft); opacity:.6; text-decoration:none; }
 .footer__admin a:hover{ opacity:1; color:var(--bordeaux); }
+
+/* ===================== ÖZEL TASARIM (Custom) ===================== */
+.cx{ max-width:1180px; margin:0 auto; padding:0 22px 80px; }
+.cx-kicker{ font-family:var(--sans); font-size:12px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--bordeaux); margin:0 0 14px; }
+
+/* Hero */
+.cx-hero{ max-width:900px; margin:0 auto; padding:64px 22px 20px; text-align:center; }
+.cx-hero__title{ font-family:var(--serif-display); font-weight:400; font-size:clamp(32px,6vw,60px);
+  line-height:1.05; color:var(--graphite); margin:0 0 20px; }
+.cx-hero__sub{ font-family:var(--serif-text); font-size:clamp(17px,2.2vw,21px); line-height:1.7;
+  color:var(--graphite-soft); margin:0 auto; max-width:680px; }
+.cx-hero__meta{ display:flex; gap:24px; align-items:baseline; justify-content:center; margin:26px 0 0;
+  font-family:var(--sans); }
+.cx-hero__meta span{ font-size:24px; letter-spacing:.02em; color:var(--graphite); }
+.cx-hero__meta em{ font-style:normal; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--graphite-soft); }
+
+/* Adımlar */
+.cx-steps{ max-width:1000px; margin:36px auto 10px; padding:0 22px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.cx-steps > div{ text-align:center; padding:26px 18px; border:1px solid rgba(26,26,26,.10); background:#fff; }
+.cx-steps span{ display:block; font-family:var(--serif-display); font-size:22px; color:var(--bordeaux); margin-bottom:10px; }
+.cx-steps h3{ font-family:var(--serif-display); font-weight:400; font-size:19px; color:var(--graphite); margin:0 0 8px; }
+.cx-steps p{ font-family:var(--serif-text); font-size:16px; line-height:1.55; color:var(--graphite-soft); margin:0; }
+
+/* Galeri grid */
+.cx-grid-wrap{ max-width:1180px; margin:52px auto 0; padding:0 22px; }
+.cx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px 26px; }
+.cx-grid--3{ margin-top:26px; }
+.cx-card{ text-decoration:none; display:block; }
+.cx-card__img{ position:relative; overflow:hidden; background:var(--ivory); aspect-ratio:1/1.9; }
+.cx-card__img img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .9s ease; }
+.cx-card:hover .cx-card__img img{ transform:scale(1.045); }
+.cx-card__cap{ padding:14px 2px 0; }
+.cx-card__no{ display:block; font-family:var(--sans); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--bordeaux); }
+.cx-card__nm{ display:block; font-family:var(--serif-display); font-size:22px; color:var(--graphite); margin-top:3px; }
+.cx-card__ts{ display:block; font-family:var(--serif-text); font-size:15px; color:var(--graphite-soft); margin-top:4px; line-height:1.4; }
+
+/* Tılsım listesi */
+.cx-tals-wrap{ max-width:1000px; margin:70px auto 0; padding:0 22px; }
+.cx-h2{ font-family:var(--serif-display); font-weight:400; font-size:clamp(26px,4vw,40px); text-align:center;
+  color:var(--graphite); margin:0 0 14px; }
+.cx-tals{ list-style:none; margin:26px 0 0; padding:0; }
+.cx-tals--grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px 30px; }
+.cx-tals li{ font-family:var(--serif-text); color:var(--graphite-soft); line-height:1.5; }
+.cx-tals--grid li{ border-left:2px solid var(--bordeaux); padding-left:14px; }
+.cx-tals strong{ display:block; font-family:var(--sans); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--graphite); margin-bottom:4px; }
+.cx-tals span{ font-size:16px; }
+
+/* Detay */
+.cx-detail{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; padding-top:34px; }
+.cx-detail__img img{ width:100%; height:auto; display:block; background:var(--ivory); }
+.cx-title{ font-family:var(--serif-display); font-weight:400; font-size:clamp(30px,5vw,48px); color:var(--graphite); margin:6px 0 10px; line-height:1.05; }
+.cx-price{ font-family:var(--sans); font-size:22px; color:var(--graphite); margin:0 0 18px; }
+.cx-price span{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--graphite-soft); }
+.cx-story{ font-family:var(--serif-text); font-size:19px; line-height:1.7; color:var(--graphite-soft); margin:0 0 22px; }
+.cx-spec{ list-style:none; margin:0 0 26px; padding:0; border-top:1px solid rgba(26,26,26,.12); }
+.cx-spec li{ font-family:var(--serif-text); font-size:16px; color:var(--graphite-soft); line-height:1.5;
+  padding:12px 0; border-bottom:1px solid rgba(26,26,26,.12); }
+.cx-spec li span{ display:inline-block; min-width:74px; font-family:var(--sans); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--bordeaux); vertical-align:top; }
+.cx-spec strong{ color:var(--graphite); font-weight:500; }
+
+/* Form */
+.cx-form{ background:var(--ivory); border:1px solid rgba(26,26,26,.10); padding:26px 24px; }
+.cx-form__h{ font-family:var(--serif-display); font-weight:400; font-size:22px; color:var(--graphite); margin:0 0 18px; }
+.cx-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.cx-form label{ display:block; font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--graphite-soft); margin-bottom:14px; }
+.cx-form input[type=text], .cx-form input[type=tel], .cx-form textarea{ width:100%; margin-top:7px; padding:11px 12px;
+  border:1px solid rgba(26,26,26,.22); background:#fff; font-family:var(--serif-text); font-size:16px; color:var(--graphite); border-radius:0; }
+.cx-form textarea{ resize:vertical; }
+.cx-full{ display:block; }
+.cx-form__lbl{ font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--graphite-soft); margin:4px 0 10px; }
+.cx-form__lbl small{ text-transform:none; letter-spacing:0; font-size:12px; opacity:.75; }
+.cx-chips{ display:flex; flex-wrap:wrap; gap:9px; margin-bottom:18px; }
+.cx-chip{ margin:0 !important; }
+.cx-chip input{ position:absolute; opacity:0; width:0; height:0; }
+.cx-chip span{ display:inline-block; font-family:var(--sans); font-size:12px; letter-spacing:.06em; text-transform:none;
+  color:var(--graphite); padding:8px 13px; border:1px solid rgba(26,26,26,.28); cursor:pointer; transition:all .2s; }
+.cx-chip input:checked + span{ background:var(--bordeaux); color:#fff; border-color:var(--bordeaux); }
+.cx-submit{ width:100%; margin-top:6px; }
+.cx-note{ font-family:var(--serif-text); font-size:14px; color:var(--graphite-soft); margin:12px 0 0; line-height:1.5; }
+.cx-acc{ margin-top:22px; }
+.cx-acc summary{ font-family:var(--sans); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--bordeaux); cursor:pointer; }
+.cx-acc .cx-tals{ margin-top:14px; }
+.cx-acc .cx-tals li{ margin-bottom:10px; font-size:15px; }
+.cx-more{ margin-top:72px; }
+
+@media (max-width:820px){
+  .cx-steps{ grid-template-columns:1fr; gap:14px; }
+  .cx-grid{ grid-template-columns:repeat(2,1fr); gap:24px 16px; }
+  .cx-detail{ grid-template-columns:1fr; gap:30px; }
+  .cx-tals--grid{ grid-template-columns:1fr; }
+}
+@media (max-width:520px){
+  .cx-grid{ grid-template-columns:1fr 1fr; gap:18px 12px; }
+  .cx-card__nm{ font-size:18px; }
+  .cx-card__ts{ display:none; }
+  .cx-row{ grid-template-columns:1fr; }
+}
