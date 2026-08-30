@@ -873,3 +873,17 @@ img{ display:block; max-width:100%; }
   text-decoration:underline;
   text-underline-offset:2px;
 }
+
+/* Fiyat satırını öne çıkar (spec'in ilk satırı) */
+.piece__spec li:first-child{
+  font-size:17px;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  letter-spacing:.01em;
+  color:var(--graphite);
+  padding-bottom:6px;
+}
+.piece__spec li:first-child span{
+  color:#5C1A1B;
+  font-weight:600;
+}
