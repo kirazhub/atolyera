@@ -3,6 +3,7 @@
 
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/fx.php';
 
 date_default_timezone_set(config('timezone', 'Europe/Istanbul'));
 
@@ -15,6 +16,15 @@ if (config('debug')) {
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_set_cookie_params(['httponly' => true, 'samesite' => 'Lax']);
     session_start();
+}
+
+// Para birimi değiştirme (?cur=USD) — ayarla ve temiz URL'e dön
+if (isset($_GET['cur'])) {
+    $cur = strtoupper(preg_replace('/[^A-Za-z]/', '', $_GET['cur']));
+    if (array_key_exists($cur, config('currencies', []))) $_SESSION['cur'] = $cur;
+    $back = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+    header('Location: ' . $back);
+    exit;
 }
 
 // Veritabanı yoksa kurulum uyarısı

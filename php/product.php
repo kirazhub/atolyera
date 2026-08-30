@@ -54,6 +54,10 @@ $related = array_slice($related, 0, 3);
       <button type="submit" name="buynow" value="1" class="btn btn--bordo">Hemen Al</button>
     </form>
 
+    <?php $waMsg = "Merhaba Atölye RA 🌿 '" . $p['name'] . "' (" . $p['no_label'] . ") eserini giymek istiyorum, bilgi alabilir miyim?"; ?>
+    <a href="<?= e(wa_link(config('whatsapp.contact_phone'), $waMsg)) ?>" target="_blank" rel="noopener" class="btn wa-btn" style="margin-top:14px;">WhatsApp’tan Sor</a>
+    <p class="product__ship">✦ Tam (özel) paketleme ile <strong>3 iş günü</strong> içinde kapınızda.</p>
+
     <?php if ($p['fabric_note']): ?><p class="product__fabric"><?= e($p['fabric_note']) ?></p><?php endif; ?>
   </div>
 </article>

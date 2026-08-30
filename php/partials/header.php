@@ -53,7 +53,15 @@ $cartN      = cart_count();
       <a href="<?= url('/urunler') ?>">Koleksiyon</a>
       <a href="<?= url('/kategori/tilsim') ?>">Tılsım</a>
       <a href="<?= url('/kategori/seri') ?>">Tılsım Serisi</a>
+      <a href="<?= url('/satis-noktalari') ?>">Satış Noktaları</a>
       <a href="mailto:<?= e(config('company.email')) ?>">İletişim</a>
+      <?php $curNow = function_exists('current_currency') ? current_currency() : 'TRY'; ?>
+      <span class="nav__cur">
+        <?php foreach (config('currencies', []) as $code => $meta):
+          if ($code !== 'TRY' && !fx_available()) continue; ?>
+          <a href="?cur=<?= $code ?>" class="<?= $curNow === $code ? 'is-active' : '' ?>" title="<?= e($meta['label']) ?>"><?= e($meta['symbol']) ?></a>
+        <?php endforeach; ?>
+      </span>
       <a href="<?= url('/sepet') ?>" class="nav__cart" aria-label="Sepet">Sepet<?php if ($cartN): ?> <span class="nav__cart-count"><?= $cartN ?></span><?php endif; ?></a>
     </nav>
   </header>

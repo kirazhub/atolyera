@@ -68,6 +68,7 @@ function order_email_html(array $order, array $items): string {
         . '<tr><td style="padding:12px 0 0;text-align:right;" colspan="2"><strong>Toplam: ' . money($order['total']) . '</strong></td></tr>'
         . '</table>'
         . '<p style="margin-top:8px;"><strong>Teslimat:</strong><br>' . nl2br(e($order['address'])) . '<br>' . e($order['city']) . '</p>'
+        . '<p style="color:#5C1A1B;font-size:14px;">Tam (özel) paketleme ile <strong>3 iş günü</strong> içinde kapınızda.</p>'
         . '<hr style="border:none;border-top:1px solid #d8d2c6;margin:24px 0;">'
         . '<p style="font-size:13px;color:#555;">Sorularınız için: <a href="mailto:' . e($c['email']) . '" style="color:#5C1A1B;">' . e($c['email']) . '</a></p>'
         . '<p style="font-size:12px;color:#999;">Aynısı bir daha doğmaz. — Atölye RA</p>'
@@ -77,7 +78,8 @@ function order_email_html(array $order, array $items): string {
 /** Sipariş bildirimi (mağazaya) */
 function order_notify_html(array $order, array $items): string {
     $lines = '';
-    foreach ($items as $it) $lines .= '• ' . e($it['name']) . ' (' . e($it['no_label']) . ') × ' . (int)$it['qty'] . ' — ' . money($it['line_total']) . '<br>';
+    foreach ($items as $it) $lines .= '• ' . e($it['name']) . ' (' . e($it['no_label']) . ') × ' . (int)$it['qty'] . ' — ' . money($it['line_total'], 'TRY') . '<br>';
+    $wa = order_wa_link($order, $items);
     return '<div style="font-family:Arial,sans-serif;color:#111;">'
         . '<h2>Yeni Sipariş — ' . e($order['order_code']) . '</h2>'
         . '<p><strong>Müşteri:</strong> ' . e($order['customer_name']) . '<br>'
@@ -85,7 +87,51 @@ function order_notify_html(array $order, array $items): string {
         . '<strong>Telefon:</strong> ' . e($order['phone']) . '<br>'
         . '<strong>Adres:</strong> ' . nl2br(e($order['address'])) . ' / ' . e($order['city']) . '</p>'
         . '<p>' . $lines . '</p>'
-        . '<p><strong>Toplam: ' . money($order['total']) . '</strong></p>'
+        . '<p><strong>Toplam: ' . money($order['total'], 'TRY') . '</strong></p>'
         . ($order['note'] ? '<p><strong>Not:</strong> ' . nl2br(e($order['note'])) . '</p>' : '')
+        . '<p><a href="' . e($wa) . '" style="display:inline-block;background:#25D366;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;">WhatsApp\'tan müşteriye yaz</a></p>'
         . '</div>';
 }
+
+/** Sipariş özeti — düz metin (WhatsApp/SMS): kim, nereden, hangi ürün */
+function order_summary_text(array $order, array $items): string {
+    $t  = "🛍 YENİ SİPARİŞ — " . $order['order_code'] . "\n\n";
+    $t .= "👤 Müşteri: " . $order['customer_name'] . "\n";
+    $t .= "📞 Telefon: " . $order['phone'] . "\n";
+    $loc = trim(($order['address'] ?? '') . ' / ' . ($order['city'] ?? ''), ' /');
+    $t .= "📍 Konum: " . $loc . "\n\n";
+    $t .= "🧵 Ürünler:\n";
+    foreach ($items as $it) {
+        $t .= "• " . $it['name'];
+        if (!empty($it['no_label'])) $t .= " (" . $it['no_label'] . ")";
+        $t .= " x" . (int)$it['qty'] . "\n";
+    }
+    $t .= "\n💳 Ödeme: " . (($order['payment_method'] ?? 'bank') === 'card' ? 'Kredi Kartı' : 'Havale/EFT') . "\n";
+    $t .= "💰 Toplam: " . money($order['total'], 'TRY');
+    return $t;
+}
+
+/** wa.me linki mailer için (wa_link functions.php'de tanımlı) */
+
+/** Sipariş için: müşterinin telefonuna WhatsApp yazma linki (mağaza kullanır) */
+function order_wa_link(array $order, array $items): string {
+    $msg = "Merhaba " . $order['customer_name'] . ", Atölye RA siparişiniz (" . $order['order_code'] . ") için teşekkürler.";
+    return wa_link($order['phone'] ?: config('whatsapp.contact_phone'), $msg);
+}
+
+/** Otomatik WhatsApp bildirimi (CallMeBot) — mağaza sahibine */
+function send_whatsapp(string $text): bool {
+    if (!config('whatsapp.notify_enabled')) return false;
+    $key = (string)config('whatsapp.callmebot_apikey');
+    $phone = preg_replace('/\D/', '', (string)config('whatsapp.notify_phone'));
+    if ($key === '' || strpos($key, '{{') !== false || $phone === '') return false;
+    try {
+        $url = 'https://api.callmebot.com/whatsapp.php?phone=' . $phone
+             . '&text=' . rawurlencode($text) . '&apikey=' . rawurlencode($key);
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER=>true, CURLOPT_TIMEOUT=>8, CURLOPT_SSL_VERIFYPEER=>true]);
+        curl_exec($ch); $code = curl_getinfo($ch, CURLINFO_HTTP_CODE); curl_close($ch);
+        return $code >= 200 && $code < 300;
+    } catch (\Throwable $e) { error_log('[wa] '.$e->getMessage()); return false; }
+}
+

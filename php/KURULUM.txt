@@ -32,16 +32,44 @@ ADIM 3 — PHP SÜRÜMÜNÜ SEÇ (bir kez)
 --------------------------------------------------------------------
 ADIM 4 — BİLGİLERİ DOLDUR  (includes/config.php)
 --------------------------------------------------------------------
-• Dosya Yöneticisi'nde: public_html > includes > config.php
-  dosyasına sağ tıkla > "Edit" (Düzenle).
-• Şu {{...}} alanlarını doldur:
-    company.mersis          → MERSİS numaran (yoksa boş bırakabilirsin)
-    company.phone           → müşteri iletişim telefonun
-    smtp.enabled            → false yerine  true  yaz
-    smtp.password           → ADIM 1'de belirlediğin mail şifresi
-    payment.bank_info       → IBAN ve hesap adın (havale ile ödeme için)
+• Dosya Yöneticisi'nde: public_html > includes > config.php > "Edit".
+• Şu alanları doldur (IBAN'ların 3'ü zaten girildi: TL/USD/EUR):
+
+  FİRMA:
+    company.mersis   → MERSİS numaran (yoksa boş bırak)
+    company.phone    → müşteri iletişim telefonun
+
+  E-POSTA (SMTP):
+    smtp.enabled     → true
+    smtp.password    → ADIM 1'deki mail şifresi
+    (host/port hazır: smtp.hostinger.com / 465 / ssl)
+
+  BUTİKLER (satış noktaları):
+    stores > Beymen İstanbul > address → şube adresi
+    stores > ... > maps → Google Haritalar linki (opsiyonel)
+    (Yeni butik eklemek için dizideki örnek satırı çoğalt.)
+
+  KREDİ KARTI (iyzico) — istersen:
+    iyzico.com'dan üye iş yeri (merchant) başvurusu yap, onaylanınca:
+    payment.iyzico_api    → API Key
+    payment.iyzico_secret → Secret Key
+    payment.card_enabled  → true
+    (Kart tahsilatı TL olarak yapılır; USD/EUR ekranda gösterilir.)
+
+  WHATSAPP OTOMATİK BİLDİRİM (ücretsiz, CallMeBot):
+    1) Telefonuna şu numarayı kaydet:  +34 621 331 709  (CallMeBot)
+    2) WhatsApp'tan ona şunu yaz:  I allow callmebot to send me messages
+    3) Sana bir "apikey" döner. Onu config'e gir:
+       whatsapp.callmebot_apikey → gelen apikey
+       whatsapp.notify_enabled   → true
+    Böylece her sipariş anında WhatsApp'ına düşer (kim, konum, ürün).
+
+  WHATSAPP KARŞILAMA (opsiyonel, çok şık durur):
+    WhatsApp Business uygulaması > Ayarlar > İş araçları > Karşılama mesajı
+    Örn: "Merhaba 🌿 Hangi sanat eserini giymek istersiniz? Belirtin,
+    size özel yardımcı olayım." (Müşteri linke tıklayınca otomatik yanıt.)
+
 • Kaydet (Save).
-  (SMTP host/port zaten Hostinger'a göre ayarlı — dokunma.)
 
 --------------------------------------------------------------------
 ADIM 5 — KURULUMU BAŞLAT

@@ -6,6 +6,7 @@
       <a href="<?= url('/kategori/baski') ?>">Sanat Baskı</a> ·
       <a href="<?= url('/kategori/tilsim') ?>">Tılsım</a> ·
       <a href="<?= url('/kategori/seri') ?>">Tılsım Serisi</a> ·
+      <a href="<?= url('/satis-noktalari') ?>">Satış Noktaları</a> ·
       <a href="<?= url('/sepet') ?>">Sepet</a>
     </p>
     <p class="footer__nav footer__nav--legal">
@@ -20,6 +21,12 @@
     <p class="footer__line"><?= e(config('company.title')) ?></p>
     <p class="footer__fine">İpek değil, TENCEL. © <?= date('Y') ?> Atölye RA · atolyera.com</p>
   </footer>
+
+  <?php if (config('whatsapp.contact_enabled')): ?>
+  <a class="wa-float" href="<?= e(wa_contact()) ?>" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.6 16 4.6S27 9.5 27 15 22.1 24.8 16 24.8zm5.5-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 2.9 1.2 2.9.8 3.5.8.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+  </a>
+  <?php endif; ?>
 
   <script>
     // Mobil menü

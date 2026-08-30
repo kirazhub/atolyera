@@ -8,9 +8,9 @@ $c = config('company');
   <p class="updated">Son güncelleme: <?= date('d.m.Y') ?></p>
 
   <h2>Hazırlık ve Gönderim</h2>
-  <p>Her parça elde işlendiğinden, siparişiniz özenle hazırlanır ve anlaşmalı kargo firması ile gönderilir.
-  Siparişiniz, ödemenin tamamlanmasını takiben en kısa sürede, yasal azami <strong>30 gün</strong>
-  içinde kargoya verilir.</p>
+  <p>Her parça özenle, <strong>tam (özel) paketleme</strong> ile hazırlanır ve anlaşmalı kargo firması ile
+  gönderilir. Ödemenizin tamamlanmasının ardından siparişiniz <strong>3 (üç) iş günü</strong> içinde
+  kapınızda olacak şekilde teslim edilir. (Yasal azami süre 30 gündür; hedefimiz 3 iş günüdür.)</p>
 
   <h2>Kargo Ücreti</h2>
   <p><?= config('shipping_fee') ? 'Kargo ücreti sipariş özetinde belirtilir.' : 'Türkiye içi teslimatlarda kargo ücretsizdir.' ?>

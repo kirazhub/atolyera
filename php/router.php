@@ -20,6 +20,7 @@ $routes = [
     '#^/sepet/?$#'                 => '/basket.php',
     '#^/sepet-islem/?$#'          => '/cart-action.php',
     '#^/odeme/?$#'                => '/checkout.php',
+    '#^/satis-noktalari/?$#'      => '/stores.php',
     '#^/siparis-tamam/?$#'       => '/order-success.php',
     '#^/yasal/([a-z0-9-]+)/?$#'   => '/legal/$1.php',
     '#^/admin/?$#'                => '/admin/index.php',

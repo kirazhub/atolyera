@@ -32,6 +32,17 @@ return [
     // --- Sipariş bildirimi ---
     'order_notify_email' => 'art@atolyera.com',   // yeni sipariş sana buraya düşer
 
+    // --- WhatsApp ---
+    'whatsapp' => [
+        'contact_phone'    => '905323093183',       // müşterilerin ulaşacağı numara (wa.me linki)
+        'contact_enabled'  => true,                 // sitede WhatsApp butonu göster
+        'contact_text'     => 'Merhaba Atölye RA 🌿 Hangi sanat eserini giymek istediğimi konuşmak istiyorum.', // link tıklanınca hazır gelen mesaj
+        // Otomatik bildirim (CallMeBot ile — ücretsiz):
+        'notify_enabled'   => false,                // apikey girince true yap
+        'notify_phone'     => '905323093183',       // siparişin düşeceği numaran
+        'callmebot_apikey' => '{{CALLMEBOT_APIKEY}}', // SANA KALAN: bkz. KURULUM.txt (tek seferlik onay)
+    ],
+
     // --- SMTP (e-posta gönderimi) — HOSTINGER için önceden ayarlandı ---
     // Hostinger'da art@atolyera.com e-posta hesabını oluştur, SADECE şifresini aşağıya yaz
     // ve 'enabled' => true yap. (hPanel > E-postalar > E-posta Hesapları)
@@ -53,12 +64,35 @@ return [
         'user' => 'admin',
     ],
 
-    // --- Ödeme (Faz 4: iyzico) ---
+    // --- Ödeme ---
     'payment' => [
-        'mode'          => 'manual',   // 'manual' = havale/ödeme linki | 'iyzico' (sonra)
-        'bank_info'     => 'IBAN: {{IBAN}} · {{BANKA / HESAP ADI}}',
-        'iyzico_api'    => '',
-        'iyzico_secret' => '',
-        'iyzico_base'   => 'https://api.iyzipay.com',
+        // Kredi kartı (iyzico) — TL olarak tahsil edilir
+        'card_enabled'  => false,
+        'iyzico_api'    => '{{IYZICO_API_KEY}}',       // SANA KALAN: iyzico API Key
+        'iyzico_secret' => '{{IYZICO_SECRET_KEY}}',    // SANA KALAN: iyzico Secret Key
+        'iyzico_base'   => 'https://api.iyzipay.com',  // canlı. Test: https://sandbox-api.iyzipay.com
+        // Havale / EFT
+        'bank_enabled'  => true,
+    ],
+
+    // --- Para birimleri (TL bazlı; USD/EUR günlük TCMB kuruyla çevrilir) ---
+    'bank_account_name' => 'REKA YAZILIM TURİZM TİC. VE SAN. A.Ş.',
+    'currencies' => [
+        'TRY' => ['symbol' => '₺', 'label' => 'TL',  'iban' => 'TR48 0006 2000 4790 0006 2937 32'],
+        'USD' => ['symbol' => '$', 'label' => 'USD', 'iban' => 'TR47 0006 2000 4790 0009 0551 46'],
+        'EUR' => ['symbol' => '€', 'label' => 'EUR', 'iban' => 'TR74 0006 2000 4790 0009 0551 45'],
+    ],
+
+    // --- Satış noktaları / butikler (yerinde görüp almak isteyenler için) ---
+    // Yeni butik eklemek için diziye satır ekle. maps: Google Haritalar bağlantısı.
+    'stores' => [
+        [
+            'name'    => 'Beymen İstanbul',
+            'address' => '{{BEYMEN ŞUBE ADRESİ}}',      // SANA KALAN: şube adresi
+            'maps'    => '',                             // SANA KALAN: Google Haritalar linki
+            'note'    => 'Atölye RA parçaları Beymen İstanbul’da.',
+        ],
+        // Örnek ek butik (doldurup çoğaltabilirsin):
+        // [ 'name' => 'Butik Adı', 'address' => 'Tam adres', 'maps' => 'https://maps.google.com/...', 'note' => '' ],
     ],
 ];

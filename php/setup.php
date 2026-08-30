@@ -57,7 +57,14 @@ CREATE TABLE IF NOT EXISTS orders (
     status TEXT DEFAULT "yeni",
     kvkk INTEGER DEFAULT 0,
     contract INTEGER DEFAULT 0,
-    mail_sent INTEGER DEFAULT 0
+    mail_sent INTEGER DEFAULT 0,
+    payment_method TEXT DEFAULT "bank",
+    payment_status TEXT DEFAULT "bekliyor",
+    iyzico_token TEXT DEFAULT "",
+    iyzico_payment_id TEXT DEFAULT "",
+    display_currency TEXT DEFAULT "TRY",
+    fx_rate REAL DEFAULT 1,
+    display_total REAL DEFAULT 0
 );
 CREATE TABLE IF NOT EXISTS order_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -77,6 +84,21 @@ CREATE TABLE IF NOT EXISTS settings (
 ');
 
 $log = [];
+
+/* --- Mevcut DB'ye eksik kolonları ekle (güvenli migrasyon) --- */
+$cols = array_column($pdo->query('PRAGMA table_info(orders)')->fetchAll(), 'name');
+$add = [
+    'payment_method'    => 'TEXT DEFAULT "bank"',
+    'payment_status'    => 'TEXT DEFAULT "bekliyor"',
+    'iyzico_token'      => 'TEXT DEFAULT ""',
+    'iyzico_payment_id' => 'TEXT DEFAULT ""',
+    'display_currency'  => 'TEXT DEFAULT "TRY"',
+    'fx_rate'           => 'REAL DEFAULT 1',
+    'display_total'     => 'REAL DEFAULT 0',
+];
+foreach ($add as $c => $def) {
+    if (!in_array($c, $cols, true)) { $pdo->exec("ALTER TABLE orders ADD COLUMN $c $def"); $log[] = "orders.$c kolonu eklendi."; }
+}
 
 /* --- Kategoriler --- */
 $cats = [

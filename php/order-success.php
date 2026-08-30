@@ -18,20 +18,30 @@ require __DIR__ . '/partials/header.php';
     <p class="page-hero__kicker">Teşekkürler</p>
     <h1 class="page-hero__title" style="font-size:clamp(30px,5vw,48px);">Siparişiniz Alındı</h1>
 
-    <?php if ($order): ?>
+    <?php if ($order):
+      $isCard = ($order['payment_method'] ?? 'bank') === 'card';
+      $paid   = ($order['payment_status'] ?? '') === 'odendi';
+      $oc     = $order['display_currency'] ?? 'TRY';
+      $curLabel = config("currencies.$oc.label", 'TL');
+    ?>
       <p class="success__code">Sipariş No: <strong><?= e($order['order_code']) ?></strong></p>
       <p style="font-family:var(--serif-text);font-size:19px;line-height:1.8;color:var(--graphite-soft);">
         Değerli <?= e($order['customer_name']) ?>, seçtiğiniz parça için teşekkür ederiz.
+        <?php if ($isCard && $paid): ?>Ödemeniz güvenle alındı.<?php endif; ?>
         Sipariş onayı <strong><?= e($order['email']) ?></strong> adresine gönderildi.
-        Ödeme için en kısa sürede sizinle iletişime geçeceğiz.
+      </p>
+      <p style="font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:var(--bordeaux);margin:8px 0 0;">
+        ✦ Tam (özel) paketleme ile <strong>3 iş günü</strong> içinde kapınızda.
       </p>
 
-      <?php if (config('payment.mode') === 'manual' && config('payment.bank_info')): ?>
+      <?php if (!$isCard): // Havale / EFT — para birimine göre IBAN ?>
         <div style="background:var(--ivory-2);padding:22px;margin:26px 0;text-align:left;">
-          <p style="font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bordeaux);margin:0 0 8px;">Ödeme Bilgileri</p>
-          <p style="font-family:var(--serif-text);font-size:17px;color:var(--graphite);margin:0;">
-            <?= nl2br(e(config('payment.bank_info'))) ?><br>
-            <span style="font-size:14px;color:var(--graphite-soft);">Açıklamaya sipariş numaranızı (<?= e($order['order_code']) ?>) yazınız.</span>
+          <p style="font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bordeaux);margin:0 0 8px;">Havale / EFT ile Ödeme (<?= e($curLabel) ?>)</p>
+          <p style="font-family:var(--serif-text);font-size:17px;color:var(--graphite);margin:0;line-height:1.9;">
+            Hesap: <strong><?= e(config('bank_account_name')) ?></strong><br>
+            IBAN (<?= e($oc) ?>): <strong><?= e(currency_iban($oc)) ?></strong><br>
+            Tutar: <strong><?= money($order['total'], $oc) ?></strong><?php if ($oc !== 'TRY'): ?> <span style="color:var(--graphite-soft);font-size:14px;">(<?= money($order['total'], 'TRY') ?>)</span><?php endif; ?><br>
+            <span style="font-size:14px;color:var(--graphite-soft);">Açıklamaya sipariş numaranızı (<?= e($order['order_code']) ?>) yazınız. Ödemeniz onaylanınca kargolanır.</span>
           </p>
         </div>
       <?php endif; ?>
@@ -40,9 +50,9 @@ require __DIR__ . '/partials/header.php';
         <?php
           $st = db()->prepare('SELECT * FROM order_items WHERE order_id=?'); $st->execute([$order['id']]);
           foreach ($st->fetchAll() as $it): ?>
-          <div class="order-line"><span><?= e($it['name']) ?> × <?= (int)$it['qty'] ?></span><span><?= money($it['line_total']) ?></span></div>
+          <div class="order-line"><span><?= e($it['name']) ?> × <?= (int)$it['qty'] ?></span><span><?= money($it['line_total'], $oc) ?></span></div>
         <?php endforeach; ?>
-        <div class="order-total"><span>Toplam</span><span><?= money($order['total']) ?></span></div>
+        <div class="order-total"><span>Toplam</span><span><?= money($order['total'], $oc) ?></span></div>
       </div>
     <?php else: ?>
       <p style="font-family:var(--serif-text);font-size:19px;color:var(--graphite-soft);">Siparişiniz alınmıştır.</p>

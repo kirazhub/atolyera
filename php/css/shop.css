@@ -265,3 +265,35 @@
   .card__name{ font-size:20px; }
   .page-hero{ padding-top:120px; }
 }
+
+/* --- Para birimi seçici --- */
+.nav__cur{ display:inline-flex; gap:2px; align-items:center; }
+.nav__cur a{
+  min-width:26px; text-align:center; padding:3px 7px; font-size:13px;
+  border:1px solid transparent; color:inherit; opacity:.7; border-radius:3px;
+}
+.nav__cur a:hover{ opacity:1; }
+.nav__cur a.is-active{ opacity:1; border-color:currentColor; }
+
+/* --- Satış noktaları --- */
+.stores{ max-width:900px; margin:0 auto; padding:0 24px 80px; }
+.store{ border-top:1px solid var(--line); padding:28px 0; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+.store:last-child{ border-bottom:1px solid var(--line); }
+.store__name{ font-family:var(--serif-display); font-weight:400; font-size:26px; color:var(--graphite); margin:0 0 8px; }
+.store__addr{ font-family:var(--serif-text); font-size:17px; line-height:1.7; color:var(--graphite-soft); margin:0; max-width:520px; }
+.store__note{ font-family:var(--sans); font-size:12px; letter-spacing:.04em; color:var(--bordeaux); margin:8px 0 0; }
+
+/* --- WhatsApp buton & yüzen düğme --- */
+.wa-btn{ background:#25D366; border-color:#25D366; color:#fff; }
+.wa-btn:hover{ background:#1da851; border-color:#1da851; color:#fff; }
+.product__ship{ font-family:var(--sans); font-size:12.5px; letter-spacing:.03em;
+  color:var(--bordeaux); margin:12px 0 0; }
+.wa-float{
+  position:fixed; right:20px; bottom:20px; z-index:60;
+  width:56px; height:56px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:#25D366; color:#fff; box-shadow:0 6px 20px rgba(0,0,0,.22);
+  transition:transform .25s, background .25s;
+}
+.wa-float:hover{ transform:scale(1.08); background:#1da851; }
+@media (max-width:560px){ .wa-float{ width:52px; height:52px; right:16px; bottom:16px; } }

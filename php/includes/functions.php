@@ -27,10 +27,17 @@ function url(string $path = ''): string {
 function asset(string $path): string { return url($path); }
 function site_url(string $path = ''): string { return rtrim(config('site_url'), '/') . '/' . ltrim($path, '/'); }
 
-/* --- Para biçimi --- */
-function money($amount): string {
-    $n = number_format((float)$amount, 0, ',', '.');
-    return $n . ' ' . config('currency', '₺');
+/* --- Para biçimi (para birimine duyarlı; TL bazlı) --- */
+function money($amount, ?string $cur = null): string {
+    $cur = $cur ?: (function_exists('current_currency') ? current_currency() : 'TRY');
+    $curs = config('currencies', ['TRY' => ['symbol' => '₺']]);
+    if (!isset($curs[$cur])) $cur = 'TRY';
+    $sym = $curs[$cur]['symbol'] ?? '₺';
+    if ($cur === 'TRY' || !function_exists('fx_convert')) {
+        return number_format((float)$amount, 0, ',', '.') . ' ' . $sym;
+    }
+    $v = fx_convert((float)$amount, $cur);
+    return $sym . number_format($v, 0, '.', ',');
 }
 
 /* --- Yönlendirme --- */
@@ -109,4 +116,13 @@ function cart_total(): int { return cart_subtotal() + (int)config('shipping_fee'
 /* --- Sipariş kodu --- */
 function new_order_code(): string {
     return 'RA-' . date('ymd') . '-' . strtoupper(substr(bin2hex(random_bytes(3)), 0, 5));
+}
+
+/* --- WhatsApp linki --- */
+function wa_link(string $phone, string $text = ''): string {
+    $phone = preg_replace('/\D/', '', $phone);
+    return 'https://wa.me/' . $phone . ($text !== '' ? '?text=' . rawurlencode($text) : '');
+}
+function wa_contact(?string $text = null): string {
+    return wa_link((string)config('whatsapp.contact_phone', ''), $text ?? (string)config('whatsapp.contact_text', ''));
 }
