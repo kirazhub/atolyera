@@ -5,8 +5,8 @@ $q        = trim($_GET['q'] ?? '');
 $material = trim($_GET['material'] ?? '');
 $sort     = $_GET['sort'] ?? '';
 
-$PAGE_TITLE = ($q !== '' ? '“' . $q . '” — Arama · ' : '') . 'Koleksiyon — Atölye RA';
-$PAGE_DESC  = 'Atölye RA koleksiyonu: sanat baskı kimonolar, tılsım koleksiyonu ve sınırlı tılsım serisi.';
+$PAGE_TITLE = ($q !== '' ? '“' . $q . '” — Arama · ' : '') . 'Kimono Koleksiyonu — El Yapımı Sanat Kimonolar | Atölye RA İstanbul';
+$PAGE_DESC  = 'Atölye RA kimono koleksiyonu: İstanbul’da elde işlenmiş sanat baskı kimonolar, tılsım koleksiyonu ve sınırlı tılsım serisi. İpek saten, saten, viskon ve TENCEL.';
 require __DIR__ . '/partials/header.php';
 
 $cats  = categories();

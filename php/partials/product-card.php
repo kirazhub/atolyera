@@ -6,7 +6,7 @@ $href = url('/urun/' . $p['slug']);
   <a href="<?= $href ?>" class="card__pic <?= !empty($p['is_sold']) ? 'is-sold' : '' ?>" aria-label="<?= e($p['name']) ?>">
     <picture>
       <source type="image/webp" srcset="<?= asset('images/' . $p['image_webp']) ?>">
-      <img src="<?= asset('images/' . $p['image']) ?>" alt="<?= e($p['name']) ?> — Atölye RA"
+      <img src="<?= asset('images/' . $p['image']) ?>" alt="<?= e($p['name']) ?> — el yapımı kimono, Atölye RA"
            loading="lazy" decoding="async" width="<?= (int)$p['width'] ?>" height="<?= (int)$p['height'] ?>">
     </picture>
     <?php if (!empty($p['is_sold'])): ?><span class="card__badge card__badge--sold">Sahibini Buldu</span>

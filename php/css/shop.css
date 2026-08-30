@@ -537,3 +537,11 @@
 @media (max-width:520px){
   .cx-why{ grid-template-columns:1fr; }
 }
+
+/* SEO içerik bloğu (anasayfa altı) */
+.seo-note{ border-top:1px solid rgba(26,26,26,.10); background:var(--ivory); margin-top:20px; padding:56px 22px; }
+.seo-note__in{ max-width:820px; margin:0 auto; }
+.seo-note h2{ font-family:var(--serif-display); font-weight:400; font-size:clamp(22px,3.4vw,30px); color:var(--graphite); margin:0 0 16px; }
+.seo-note p{ font-family:var(--serif-text); font-size:17px; line-height:1.7; color:var(--graphite-soft); margin:0 0 14px; }
+.seo-note a{ color:var(--bordeaux); }
+.seo-note__tags{ font-family:var(--sans); font-size:12px; letter-spacing:.04em; color:var(--graphite-soft); opacity:.7; margin-top:8px; }

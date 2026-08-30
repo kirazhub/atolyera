@@ -1,7 +1,7 @@
 <?php
 /** Ana sayfa (main) */
-$PAGE_TITLE = 'Kimono & Sabahlık | Lüks El Yapımı — Atölye RA';
-$PAGE_DESC  = 'Giyilebilir sanat: TENCEL ve saten kumaştan, elde işlenmiş, her deseni tek lüks kimono ve sabahlık. Atölye RA.';
+$PAGE_TITLE = 'İstanbul El Yapımı Kimono & Sabahlık — Lüks Sanat Kimono | Atölye RA';
+$PAGE_DESC  = 'İstanbul’da elde işlenen, her deseni tek lüks kimono ve sabahlıklar. İpek saten, saten, viskon ve TENCEL üzerine giyilebilir sanat. Atölye RA — Eyüpsultan, İstanbul.';
 require __DIR__ . '/partials/header.php';
 
 $featured = array_slice(products_all('baski'), 0, 3);
@@ -11,8 +11,8 @@ $tilsim   = array_slice(products_all('seri'), 0, 3);
 <section class="page-hero">
   <p class="page-hero__kicker">Giyilebilir Sanat</p>
   <h1 class="page-hero__title">Aynısı bir daha doğmaz</h1>
-  <p class="page-hero__intro">Yağlı boya tablolardan doğan desenler; <strong>ipek saten, saten ve viskon</strong>
-  üzerine elde işlenir. Tılsım serisi ise <strong>TENCEL</strong> üzerine nakışla, <strong>30’da bir üretilen</strong>
+  <p class="page-hero__intro"><strong>İstanbul’da</strong>, yağlı boya tablolardan doğan desenlerle elde işlenen <strong>lüks kimono ve sabahlıklar</strong>; ipek saten, saten ve viskon
+  üzerine. Tılsım serisi ise <strong>TENCEL</strong> üzerine nakışla, <strong>30’da bir üretilen</strong>
   sınırlı bir edisyondur — her parça bir imza, her sırt bir tuval.</p>
   <p class="hero-fabrics">İpek Saten · Saten · Viskon · Viskon Şifon &nbsp;|&nbsp; TENCEL — sınırlı tılsım edisyonu (30’da 1)</p>
   <p style="margin-top:26px;">
@@ -48,5 +48,18 @@ $tilsim   = array_slice(products_all('seri'), 0, 3);
     <a href="<?= url('/urunler') ?>" class="btn btn--ghost">Tüm Koleksiyon (<?= count(products_all()) ?> parça)</a>
   </p>
 </div>
+
+<section class="seo-note">
+  <div class="seo-note__in">
+    <h2>İstanbul’da El Yapımı Kimono ve Sabahlık</h2>
+    <p>Atölye RA, <strong>İstanbul</strong> merkezli bir giyilebilir sanat atölyesidir. Yağlı boya tablolardan
+    doğan desenlerimiz; ipek saten, saten ve viskon üzerine tek tek, elde işlenir. Her <strong>kimono</strong> ve
+    <strong>sabahlık</strong> yalnızca bir kez üretilir — bu yüzden aldığınız parçanın dünyada bir eşi daha yoktur.</p>
+    <p>Sınırlı <a href="<?= url('/kategori/seri') ?>">tılsım serimiz</a> TENCEL üzerine nakışla, 30’da bir üretilir.
+    Size özel ölçü, isim veya şiir nakışı ve dilediğiniz tılsımla <a href="<?= url('/ozel-uretim') ?>">özel üretim</a>
+    kimono da hazırlıyoruz. Tüm Türkiye’ye ücretsiz kargo; havale ile ödemede her gün indirim.</p>
+    <p class="seo-note__tags">Lüks kimono · el yapımı sabahlık · ipek saten kimono · sanat kimono · İstanbul kimono · özel tasarım kimono</p>
+  </div>
+</section>
 
 <?php require __DIR__ . '/partials/footer.php'; ?>
