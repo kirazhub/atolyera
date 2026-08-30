@@ -84,15 +84,21 @@ return [
     ],
 
     // --- Satış noktaları / butikler (yerinde görüp almak isteyenler için) ---
-    // Yeni butik eklemek için diziye satır ekle. maps: Google Haritalar bağlantısı.
+    // Beymen mağazaları + (belli olunca) butikler. maps: Google Haritalar bağlantısı.
     'stores' => [
-        [
-            'name'    => 'Beymen İstanbul',
-            'address' => '{{BEYMEN ŞUBE ADRESİ}}',      // SANA KALAN: şube adresi
-            'maps'    => '',                             // SANA KALAN: Google Haritalar linki
-            'note'    => 'Atölye RA parçaları Beymen İstanbul’da.',
-        ],
-        // Örnek ek butik (doldurup çoğaltabilirsin):
-        // [ 'name' => 'Butik Adı', 'address' => 'Tam adres', 'maps' => 'https://maps.google.com/...', 'note' => '' ],
+        [ 'name' => 'Beymen Nişantaşı', 'address' => 'Abdi İpekçi Cad., Nişantaşı — Şişli / İstanbul',
+          'maps' => 'https://www.google.com/maps/search/?api=1&query=Beymen+Ni%C5%9Fanta%C5%9F%C4%B1', 'note' => 'Atölye RA parçalarını burada deneyebilirsiniz.' ],
+        [ 'name' => 'Beymen Zorlu Center', 'address' => 'Zorlu Center, Levazım — Beşiktaş / İstanbul',
+          'maps' => 'https://www.google.com/maps/search/?api=1&query=Beymen+Zorlu+Center', 'note' => '' ],
+        [ 'name' => 'Beymen İstinye Park', 'address' => 'İstinye Park AVM — Sarıyer / İstanbul',
+          'maps' => 'https://www.google.com/maps/search/?api=1&query=Beymen+%C4%B0stinye+Park', 'note' => '' ],
+        [ 'name' => 'Beymen Akmerkez', 'address' => 'Akmerkez AVM, Etiler — Beşiktaş / İstanbul',
+          'maps' => 'https://www.google.com/maps/search/?api=1&query=Beymen+Akmerkez', 'note' => '' ],
+        [ 'name' => 'Beymen Suadiye', 'address' => 'Bağdat Cad., Suadiye — Kadıköy / İstanbul',
+          'maps' => 'https://www.google.com/maps/search/?api=1&query=Beymen+Suadiye', 'note' => '' ],
+        [ 'name' => 'Diğer Beymen Mağazaları', 'address' => 'Türkiye genelindeki tüm Beymen mağazaları.',
+          'maps' => 'https://www.google.com/maps/search/?api=1&query=Beymen+ma%C4%9Faza', 'note' => 'Haritadan size en yakın Beymen’i bulun.' ],
+        [ 'name' => 'Seçkin Butikler', 'address' => 'Yakında — seçkin butiklerde. Adresler ve konumlar eklenecek.',
+          'maps' => '', 'note' => 'Yakında' ],
     ],
 ];

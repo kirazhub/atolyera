@@ -8,7 +8,8 @@ $stores = config('stores', []);
 <section class="page-hero">
   <p class="page-hero__kicker">Yerinde Görün</p>
   <h1 class="page-hero__title">Satış Noktaları</h1>
-  <p class="page-hero__intro">Parçalarımızı dokunarak görmek isteyenler için; aşağıdaki butiklerde bulabilirsiniz.</p>
+  <p class="page-hero__intro">Atölye RA parçalarını <strong>Beymen mağazalarında</strong> ve seçkin
+  butiklerde görüp deneyebilirsiniz. Aşağıdan size en yakın noktayı haritada bulun.</p>
 </section>
 
 <div class="stores">

@@ -38,7 +38,7 @@ $related = array_slice($related, 0, 3);
       <li><span>Beden</span> <?= e($p['size']) ?></li>
       <?php if ($p['material']): ?><li><span>Kumaş</span> <?= e($p['material']) ?></li><?php endif; ?>
       <li><span>Üretim</span> Elde işlenmiş · sınırlı</li>
-      <li><span>Satış</span> atolyera.com &amp; Beymen İstanbul</li>
+      <li><span>Satış</span> atolyera.com · <a href="<?= url('/satis-noktalari') ?>" style="color:#5C1A1B;">Beymen ve butik mağazalarda deneyin</a></li>
     </ul>
 
     <form method="post" action="<?= url('/sepet-islem') ?>" class="product__buy">
