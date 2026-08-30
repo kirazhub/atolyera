@@ -32,15 +32,16 @@ return [
     // --- Sipariş bildirimi ---
     'order_notify_email' => 'art@atolyera.com',   // yeni sipariş sana buraya düşer
 
-    // --- SMTP (e-posta gönderimi) ---
-    // Hosting'in mail hesabı bilgileriyle doldur (cPanel > E-posta Hesapları).
+    // --- SMTP (e-posta gönderimi) — HOSTINGER için önceden ayarlandı ---
+    // Hostinger'da art@atolyera.com e-posta hesabını oluştur, SADECE şifresini aşağıya yaz
+    // ve 'enabled' => true yap. (hPanel > E-postalar > E-posta Hesapları)
     'smtp' => [
-        'enabled'   => false,                     // bilgileri girince true yap
-        'host'      => 'mail.atolyera.com',
-        'port'      => 587,                        // 587=TLS, 465=SSL
-        'secure'    => 'tls',                      // 'tls' | 'ssl'
+        'enabled'   => false,                     // SANA KALAN: şifreyi girince true yap
+        'host'      => 'smtp.hostinger.com',      // Hostinger e-posta SMTP sunucusu
+        'port'      => 465,                        // 465=SSL (Hostinger önerisi)
+        'secure'    => 'ssl',
         'username'  => 'art@atolyera.com',
-        'password'  => '{{EPOSTA_ŞİFRESİ}}',
+        'password'  => '{{EPOSTA_ŞİFRESİ}}',      // SANA KALAN: Hostinger mail şifresi
         'from'      => 'art@atolyera.com',
         'from_name' => 'Atölye RA',
     ],

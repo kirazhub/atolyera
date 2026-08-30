@@ -6,3 +6,4 @@ node_modules
 # PHP mağaza — çalışma zamanı veritabanı (sunucuda üretilir)
 php/data/*.sqlite
 php/data/*.sqlite-*
+atolyera-magaza.zip

@@ -1,51 +1,66 @@
 ====================================================================
-  ATÖLYE RA — PHP MAĞAZA · KURULUM (yalnızca senin yapacakların)
+  ATÖLYE RA — PHP MAĞAZA · HOSTINGER KURULUMU
+  (Yalnızca senin yapacakların — adım adım, çok basit)
 ====================================================================
 
-Bu klasör (php/) TAM ÇALIŞAN mağazadır. Sana kalan sadece 5 küçük adım:
+Elinde tek bir dosya var: atolyera-magaza.zip
+Aşağıdaki 5 adımı sırayla yap; takıldığın yerde bana yaz.
 
 --------------------------------------------------------------------
-ADIM 1 — HOSTING AL (PHP + SQLite destekli, cPanel)
+ADIM 1 — E-POSTA HESABINI OLUŞTUR (art@atolyera.com)
 --------------------------------------------------------------------
-• Öneri: Natro / Turhost / Hostinger / Guzel Hosting (aylık düşük ücret).
-• "PHP 8+ ve SQLite destekli paylaşımlı hosting" yeterli.
-• Bir e-posta hesabı da açılır: art@atolyera.com (SMTP için lazım).
+• Hostinger paneli (hPanel) > "E-postalar" > "E-posta Hesapları"
+• Yeni hesap: art@atolyera.com  →  bir şifre belirle (bir yere not al)
 
 --------------------------------------------------------------------
 ADIM 2 — DOSYALARI YÜKLE
 --------------------------------------------------------------------
-• Bu "php" klasörünün İÇİNDEKİ her şeyi hosting'in "public_html"
-  klasörüne yükle (php klasörünü değil, içindekileri).
-• data/ klasörünün yazılabilir (755/775) olduğundan emin ol.
+• hPanel > "Dosyalar" > "Dosya Yöneticisi" (File Manager)
+• Soldan "public_html" klasörüne gir.
+• (İçinde Vercel'den kalan bir şey varsa boşalt.)
+• Sağ üst "Upload" (Yükle) ile  atolyera-magaza.zip  dosyasını yükle.
+• Yüklenen zip'e sağ tıkla > "Extract" (Çıkart). Bittiğinde zip'i sil.
+  -> Artık public_html içinde index.php, admin, images... görünmeli.
 
 --------------------------------------------------------------------
-ADIM 3 — BİLGİLERİ DOLDUR  (includes/config.php dosyası)
+ADIM 3 — PHP SÜRÜMÜNÜ SEÇ (bir kez)
 --------------------------------------------------------------------
-Dosyayı aç, şu {{...}} alanlarını doldur:
-  • company.mersis   → MERSİS numaran (e-Devlet > Ticaret Sicil)
-  • company.phone    → müşteri telefonun
-  • smtp.enabled     → true  YAP
-  • smtp.host/username/password → hosting mail bilgilerin
-  • payment.bank_info → IBAN ve hesap adın (havale ile ödeme için)
+• hPanel > "Gelişmiş" > "PHP Yapılandırması"
+• PHP sürümü: 8.1 veya üstü seç.
+• (SQLite/pdo_sqlite Hostinger'da zaten açık gelir.)
 
 --------------------------------------------------------------------
-ADIM 4 — KURULUMU ÇALIŞTIR
+ADIM 4 — BİLGİLERİ DOLDUR  (includes/config.php)
 --------------------------------------------------------------------
-• Tarayıcıdan bir kez aç:  https://atolyera.com/setup.php
-• "Kurulum tamam" yazınca:  setup.php dosyasını SUNUCUDAN SİL.
+• Dosya Yöneticisi'nde: public_html > includes > config.php
+  dosyasına sağ tıkla > "Edit" (Düzenle).
+• Şu {{...}} alanlarını doldur:
+    company.mersis          → MERSİS numaran (yoksa boş bırakabilirsin)
+    company.phone           → müşteri iletişim telefonun
+    smtp.enabled            → false yerine  true  yaz
+    smtp.password           → ADIM 1'de belirlediğin mail şifresi
+    payment.bank_info       → IBAN ve hesap adın (havale ile ödeme için)
+• Kaydet (Save).
+  (SMTP host/port zaten Hostinger'a göre ayarlı — dokunma.)
+
+--------------------------------------------------------------------
+ADIM 5 — KURULUMU BAŞLAT
+--------------------------------------------------------------------
+• Tarayıcıdan bir kez aç:   https://atolyera.com/setup.php
+• "Kurulum tamam ✓" görünce:  Dosya Yöneticisi'nden setup.php'yi SİL.
 • Yönetim paneli:  https://atolyera.com/admin/
-     kullanıcı: admin    şifre: atolyera-2026
-     (Girer girmez "Şifre" menüsünden değiştir.)
-
---------------------------------------------------------------------
-ADIM 5 — ALAN ADINI BAĞLA (DNS)
---------------------------------------------------------------------
-• atolyera.com'u yeni hosting'e yönlendir (hosting sana A kaydı /
-  nameserver verir). Bu adımda bana söyle, birlikte yapalım.
+      kullanıcı: admin     şifre: atolyera-2026
+      (Girer girmez üstteki "Şifre" menüsünden değiştir.)
 
 ====================================================================
-NOT: Ödeme şu an "havale/EFT" olarak çalışır. İstersen sonra
-iyzico kredi kartı entegrasyonunu ekleriz (config > payment).
+DNS (alan adını bağlama) — BUNU BİRLİKTE YAPACAĞIZ
+====================================================================
+atolyera.com şu an Vercel'e bağlı. Hostinger'a yönlendireceğiz.
+• hPanel ana sayfada Hostinger sana bir "IP adresi" veya
+  "nameserver" verir. Onları bana ilet, adımları birlikte yapalım.
+
+====================================================================
 Her yeni sipariş: veritabanına kaydedilir + sana ve müşteriye
 e-posta gider + panelde "Siparişler"de görünür.
+İstersen sonra iyzico kredi kartı ödemesini de ekleriz.
 ====================================================================
