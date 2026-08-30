@@ -70,7 +70,7 @@ $cartN      = cart_count();
       <a href="<?= url('/urunler') ?>">Koleksiyon</a>
       <a href="<?= url('/kategori/tilsim') ?>">Tılsım</a>
       <a href="<?= url('/kategori/seri') ?>">Tılsım Serisi</a>
-      <a href="<?= url('/ozel-tasarim') ?>">Özel Tasarım</a>
+      <a href="<?= url('/ozel-uretim') ?>">Özel Üretim</a>
       <a href="<?= url('/satis-noktalari') ?>">Satış Noktaları</a>
       <a href="mailto:<?= e(config('company.email')) ?>">İletişim</a>
       <a href="<?= url('/urunler') ?>" class="nav__search" aria-label="Ara">

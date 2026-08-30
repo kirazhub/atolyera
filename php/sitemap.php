@@ -25,11 +25,11 @@ foreach (categories() as $c) $add($base . '/kategori/' . $c['slug'], '0.7');
 // Ürünler (görselli)
 foreach (products_all() as $p)
     $add($base . '/urun/' . $p['slug'], '0.8', $base . '/images/' . $p['image'], $p['name']);
-// Özel Tasarım
+// Özel Üretim
 require_once __DIR__ . '/includes/custom-designs.php';
-$add($base . '/ozel-tasarim', '0.8');
+$add($base . '/ozel-uretim', '0.8');
 foreach (custom_designs() as $d)
-    $add($base . '/ozel-tasarim?d=' . $d['slug'], '0.7', $base . '/' . $d['img'], $d['name']);
+    $add($base . '/ozel-uretim?d=' . $d['slug'], '0.7', $base . '/' . $d['img'], $d['name']);
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">' . "\n";

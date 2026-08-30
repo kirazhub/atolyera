@@ -465,3 +465,74 @@
   .cx-card__ts{ display:none; }
   .cx-row{ grid-template-columns:1fr; }
 }
+
+/* ---- Özel Üretim: tılsım sembolü + ek bölümler ---- */
+.tsym{ width:26px; height:26px; color:var(--bordeaux); display:inline-block; vertical-align:middle; }
+.tsym--sm{ width:18px; height:18px; margin-right:7px; }
+.tsym--md{ width:38px; height:38px; }
+.tsym--lg{ width:54px; height:54px; }
+
+/* görsel üstündeki tılsım rozeti */
+.cx-card__img, .cx-detail__img{ position:relative; }
+.cx-badge{ position:absolute; top:12px; right:12px; width:44px; height:44px; border-radius:50%;
+  background:rgba(245,241,234,.92); backdrop-filter:blur(2px); display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 10px rgba(26,26,26,.18); }
+.cx-badge .tsym{ width:24px; height:24px; }
+.cx-detail__img .cx-badge{ width:56px; height:56px; } .cx-detail__img .cx-badge .tsym{ width:30px; height:30px; }
+
+/* kart fiyatı */
+.cx-card__pr{ display:block; font-family:var(--sans); font-size:13px; letter-spacing:.06em; color:var(--graphite); margin-top:8px; }
+
+/* Neden özel? kartları */
+.cx-why{ max-width:1100px; margin:40px auto 0; padding:0 22px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(26,26,26,.10); border:1px solid rgba(26,26,26,.10); }
+.cx-why > div{ background:#fff; padding:24px 22px; }
+.cx-why h3{ font-family:var(--serif-display); font-weight:400; font-size:18px; color:var(--bordeaux); margin:0 0 7px; }
+.cx-why p{ font-family:var(--serif-text); font-size:16px; line-height:1.5; color:var(--graphite-soft); margin:0; }
+
+/* eşlik eden tılsım kartı (detay) */
+.cx-tal-card{ display:flex; gap:16px; align-items:flex-start; background:var(--ivory); border:1px solid rgba(26,26,26,.10); padding:18px 18px; margin:0 0 24px; }
+.cx-tal-card__sym{ flex:0 0 auto; color:var(--bordeaux); }
+.cx-tal-card__lbl{ font-family:var(--sans); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--graphite-soft); margin:0 0 3px; }
+.cx-tal-card__nm{ font-family:var(--serif-display); font-size:19px; color:var(--graphite); margin:0 0 6px; }
+.cx-tal-card__mn{ font-family:var(--serif-text); font-size:16px; line-height:1.5; color:var(--graphite-soft); margin:0 0 6px; }
+.cx-tal-card__note{ font-family:var(--serif-text); font-size:14px; color:var(--bordeaux); margin:0; }
+
+/* sürpriz uyarısı */
+.cx-surprise{ font-family:var(--serif-text); font-size:15px; line-height:1.6; color:var(--graphite-soft);
+  border-top:1px solid rgba(26,26,26,.12); padding-top:16px; margin:22px 0 0; }
+
+/* tılsım listesi (şekilli) */
+.cx-tals--grid li{ display:flex; gap:14px; align-items:flex-start; }
+.cx-tals__sym{ flex:0 0 auto; color:var(--bordeaux); }
+.cx-tals__tx{ display:block; }
+
+/* chip içi sembol */
+.cx-chip span{ display:inline-flex; align-items:center; }
+
+/* Nakış bölümü */
+.cx-nakis{ background:var(--graphite); color:var(--ivory); margin:72px 0 0; padding:60px 22px; }
+.cx-nakis__in{ max-width:820px; margin:0 auto; }
+.cx-nakis .cx-kicker{ color:#C99; }
+.cx-nakis .cx-h2{ color:var(--ivory); }
+.cx-nakis p{ font-family:var(--serif-text); font-size:18px; line-height:1.7; color:rgba(245,241,234,.86); margin:0 0 14px; }
+.cx-nakis ul{ list-style:none; padding:0; margin:0 0 20px; }
+.cx-nakis li{ font-family:var(--serif-text); font-size:17px; line-height:1.6; color:rgba(245,241,234,.86); padding-left:20px; position:relative; margin-bottom:8px; }
+.cx-nakis li:before{ content:"✦"; position:absolute; left:0; color:#C99; }
+.cx-nakis__hint{ font-style:italic; opacity:.8; }
+.cx-nakis .btn{ margin-top:10px; }
+
+/* Bilmeniz gerekenler */
+.cx-info{ max-width:860px; margin:64px auto 84px; padding:0 22px; }
+.cx-info__list{ list-style:none; padding:0; margin:24px 0 0; }
+.cx-info__list li{ font-family:var(--serif-text); font-size:16px; line-height:1.6; color:var(--graphite-soft);
+  padding:14px 0 14px 26px; border-bottom:1px solid rgba(26,26,26,.10); position:relative; }
+.cx-info__list li:before{ content:"✦"; position:absolute; left:0; color:var(--bordeaux); }
+.cx-info__list strong{ color:var(--graphite); }
+
+@media (max-width:820px){
+  .cx-why{ grid-template-columns:1fr 1fr; }
+  .cx-nakis{ padding:44px 22px; }
+}
+@media (max-width:520px){
+  .cx-why{ grid-template-columns:1fr; }
+}

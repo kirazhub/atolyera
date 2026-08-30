@@ -17,6 +17,7 @@ DirectoryIndex index.php index.html
     RewriteRule ^kategori/([a-z0-9-]+)/?$   category.php?slug=$1     [L,QSA]
     RewriteRule ^urun/([a-z0-9-]+)/?$       product.php?slug=$1      [L,QSA]
     RewriteRule ^ozel-tasarim/?$            ozel-tasarim.php         [L,QSA]
+    RewriteRule ^ozel-uretim/?$             ozel-tasarim.php         [L,QSA]
     RewriteRule ^sepet/?$                   basket.php              [L]
     RewriteRule ^sepet-islem/?$             cart-action.php         [L]
     RewriteRule ^odeme/?$                   checkout.php            [L]
