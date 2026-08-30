@@ -57,10 +57,9 @@ return [
     ],
 
     // --- Yönetim paneli ---
-    // Kullanıcı adı burada; şifre veritabanında saklanır.
-    // Varsayılan şifre: atolyera-2026  (panele girince "Şifre Değiştir"den değiştir)
+    // Giriş: kullanıcı adı RA · şifre veritabanında (varsayılan 1234568)
     'admin' => [
-        'user' => 'admin',
+        'user' => 'RA',
     ],
 
     // --- Ödeme ---

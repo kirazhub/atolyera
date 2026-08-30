@@ -331,3 +331,37 @@
   color:var(--bordeaux); margin:0 0 6px; }
 .trust .d{ font-family:var(--serif-text); font-size:15px; color:var(--graphite-soft); margin:0; }
 @media (max-width:700px){ .trust{ grid-template-columns:repeat(2,1fr); } }
+
+/* Sahibini Buldu */
+.card__badge--sold{ background:var(--graphite); color:var(--ivory); }
+.card__pic.is-sold img{ filter:grayscale(.25) brightness(.96); }
+.btn--sold{ background:var(--graphite); color:var(--ivory); border-color:var(--graphite); cursor:default; opacity:.85; }
+.btn--sold:hover{ background:var(--graphite); }
+.product__sold{ font-family:var(--sans); font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color:#fff; background:var(--graphite); display:inline-block; padding:8px 16px; margin:0 0 12px; }
+
+/* Arama çubuğu */
+.search-bar{ max-width:560px; margin:24px auto 0; display:flex; border:1px solid var(--graphite); background:#fff; }
+.search-bar input{ flex:1; border:none; padding:13px 16px; font-family:var(--serif-text); font-size:16px; background:transparent; }
+.search-bar input:focus{ outline:none; }
+.search-bar button{ border:none; background:var(--graphite); color:var(--ivory); padding:0 18px; cursor:pointer; display:flex; align-items:center; }
+.search-bar button:hover{ background:var(--bordeaux); }
+.nav__search{ display:inline-flex; align-items:center; }
+
+/* Filtre + sıralama barı */
+.filter-bar{ max-width:1240px; margin:18px auto 0; padding:0 24px; display:flex; flex-wrap:wrap;
+  gap:14px 24px; align-items:center; justify-content:space-between; }
+.filter-mats{ display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center;
+  font-family:var(--sans); font-size:12px; letter-spacing:.08em; }
+.filter-mats span{ color:var(--graphite-soft); text-transform:uppercase; letter-spacing:.14em; font-size:11px; }
+.filter-mats a{ color:var(--graphite-soft); text-decoration:none; padding-bottom:2px; border-bottom:1px solid transparent; }
+.filter-mats a:hover{ color:var(--graphite); }
+.filter-mats a.is-active{ color:var(--bordeaux); border-bottom-color:var(--bordeaux); }
+.filter-sort{ display:flex; align-items:center; gap:8px; font-family:var(--sans); font-size:12px; }
+.filter-sort select{ font-family:var(--sans); font-size:13px; padding:7px 10px; border:1px solid var(--line); background:#fff; }
+
+/* Footer yönetim linki */
+.footer__admin{ margin-top:10px; }
+.footer__admin a{ font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--graphite-soft); opacity:.6; text-decoration:none; }
+.footer__admin a:hover{ opacity:1; color:var(--bordeaux); }

@@ -41,6 +41,11 @@ $related = array_slice($related, 0, 3);
       <li><span>Satış</span> atolyera.com · <a href="<?= url('/satis-noktalari') ?>" style="color:#5C1A1B;">Beymen ve butik mağazalarda deneyin</a></li>
     </ul>
 
+    <?php if (!empty($p['is_sold'])): ?>
+      <p class="product__sold">✦ Sahibini Buldu</p>
+      <p style="font-family:var(--serif-text);color:var(--graphite-soft);margin:0 0 18px;">Bu parça sahibine kavuştu. Benzer bir tasarım veya size özel üretim için bize yazın.</p>
+      <a href="<?= e(wa_link(config('whatsapp.contact_phone'), "Merhaba Atölye RA 🌿 '".$p['name']."' benzeri veya bana özel bir tasarım rica ediyorum.")) ?>" target="_blank" rel="noopener" class="btn wa-btn">WhatsApp'tan Sor</a>
+    <?php else: ?>
     <form method="post" action="<?= url('/sepet-islem') ?>" class="product__buy">
       <?= csrf_field() ?>
       <input type="hidden" name="action" value="add">
@@ -57,6 +62,7 @@ $related = array_slice($related, 0, 3);
     <?php $waMsg = "Merhaba Atölye RA 🌿 '" . $p['name'] . "' (" . $p['no_label'] . ") eserini giymek istiyorum, bilgi alabilir miyim?"; ?>
     <a href="<?= e(wa_link(config('whatsapp.contact_phone'), $waMsg)) ?>" target="_blank" rel="noopener" class="btn wa-btn" style="margin-top:14px;">WhatsApp’tan Sor</a>
     <p class="product__ship">✦ Tam (özel) paketleme ile <strong>3 iş günü</strong> içinde kapınızda.</p>
+    <?php endif; ?>
 
     <?php if ($p['fabric_note']): ?><p class="product__fabric"><?= e($p['fabric_note']) ?></p><?php endif; ?>
   </div>

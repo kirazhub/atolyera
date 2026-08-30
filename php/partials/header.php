@@ -72,6 +72,9 @@ $cartN      = cart_count();
       <a href="<?= url('/kategori/seri') ?>">Tılsım Serisi</a>
       <a href="<?= url('/satis-noktalari') ?>">Satış Noktaları</a>
       <a href="mailto:<?= e(config('company.email')) ?>">İletişim</a>
+      <a href="<?= url('/urunler') ?>" class="nav__search" aria-label="Ara">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
       <?php $curNow = function_exists('current_currency') ? current_currency() : 'TRY'; ?>
       <span class="nav__cur">
         <?php foreach (config('currencies', []) as $code => $meta):

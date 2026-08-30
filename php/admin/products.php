@@ -32,7 +32,7 @@ admin_header('Ürünler');
       <td><strong><?= e($p['name']) ?></strong><br><span style="color:#999;font-size:12px;"><?= e($p['no_label']) ?></span></td>
       <td><?= e($p['cat_name']) ?></td>
       <td><?= money($p['price']) ?></td>
-      <td><span class="pill <?= $p['is_active']?'pill--hazir':'pill--iptal' ?>"><?= $p['is_active']?'Görünür':'Gizli' ?></span></td>
+      <td><span class="pill <?= $p['is_active']?'pill--hazir':'pill--iptal' ?>"><?= $p['is_active']?'Görünür':'Gizli' ?></span><?php if(!empty($p['is_sold'])): ?> <span class="pill pill--iptal">Sahibini Buldu</span><?php endif; ?></td>
       <td>
         <a href="<?= url('/admin/product-edit.php?id='.(int)$p['id']) ?>" class="btn btn--ghost btn--sm">Düzenle</a>
         <form method="post" style="display:inline;"><?= csrf_field() ?><input type="hidden" name="do" value="toggle"><input type="hidden" name="id" value="<?= (int)$p['id'] ?>"><button class="btn btn--ghost btn--sm"><?= $p['is_active']?'Gizle':'Göster' ?></button></form>

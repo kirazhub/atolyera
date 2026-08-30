@@ -17,7 +17,7 @@ $cats = categories();
 // varsayılan boş kayıt
 $d = $p ?: ['id'=>0,'slug'=>'','no_label'=>'','name'=>'','story'=>'','muse'=>'','charm_label'=>'✦ Tılsım',
     'charm'=>'','fabric_note'=>'','material'=>'','price'=>71000,'size'=>'Tek beden (free size)',
-    'image'=>'','image_webp'=>'','width'=>1000,'height'=>1500,'cat_slug'=>'baski','cat_name'=>'','badge'=>'','sort'=>999,'is_active'=>1];
+    'image'=>'','image_webp'=>'','width'=>1000,'height'=>1500,'cat_slug'=>'baski','cat_name'=>'','badge'=>'','sort'=>999,'is_active'=>1,'is_sold'=>0];
 
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $d['height'] = (int)($_POST['height'] ?? 1500);
     $d['sort']   = (int)($_POST['sort'] ?? 999);
     $d['is_active'] = isset($_POST['is_active']) ? 1 : 0;
+    $d['is_sold'] = isset($_POST['is_sold']) ? 1 : 0;
     $d['cat_slug'] = preg_replace('/[^a-z0-9-]/','',$_POST['cat_slug'] ?? 'baski');
     $catRow = category_by_slug($d['cat_slug']);
     $d['cat_name'] = $catRow['name'] ?? '';
@@ -77,17 +78,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql='UPDATE products SET slug=:slug,no_label=:no_label,name=:name,story=:story,muse=:muse,
                 charm_label=:charm_label,charm=:charm,fabric_note=:fabric_note,material=:material,price=:price,
                 size=:size,image=:image,image_webp=:image_webp,width=:width,height=:height,cat_slug=:cat_slug,
-                cat_name=:cat_name,badge=:badge,sort=:sort,is_active=:is_active WHERE id=:id';
+                cat_name=:cat_name,badge=:badge,sort=:sort,is_active=:is_active,is_sold=:is_sold WHERE id=:id';
         } else {
             $sql='INSERT INTO products (slug,no_label,name,story,muse,charm_label,charm,fabric_note,material,price,
-                size,image,image_webp,width,height,cat_slug,cat_name,badge,sort,is_active)
+                size,image,image_webp,width,height,cat_slug,cat_name,badge,sort,is_active,is_sold)
                 VALUES (:slug,:no_label,:name,:story,:muse,:charm_label,:charm,:fabric_note,:material,:price,
-                :size,:image,:image_webp,:width,:height,:cat_slug,:cat_name,:badge,:sort,:is_active)';
+                :size,:image,:image_webp,:width,:height,:cat_slug,:cat_name,:badge,:sort,:is_active,:is_sold)';
         }
         $st = db()->prepare($sql);
         $params = [];
         foreach (['slug','no_label','name','story','muse','charm_label','charm','fabric_note','material','price',
-            'size','image','image_webp','width','height','cat_slug','cat_name','badge','sort','is_active'] as $k) $params[':'.$k]=$d[$k];
+            'size','image','image_webp','width','height','cat_slug','cat_name','badge','sort','is_active','is_sold'] as $k) $params[':'.$k]=$d[$k];
         if ($p) $params[':id']=$p['id'];
         $st->execute($params);
         flash_set('success', $p ? 'Ürün güncellendi.' : 'Ürün eklendi.');
@@ -131,7 +132,8 @@ admin_header($p ? 'Ürün Düzenle' : 'Yeni Ürün');
     </div>
     <div class="field"><label>Görsel genişlik (px)</label><input type="number" name="width" value="<?= (int)$d['width'] ?>"></div>
     <div class="field"><label>Görsel yükseklik (px)</label><input type="number" name="height" value="<?= (int)$d['height'] ?>"></div>
-    <div class="field field--full"><label class="check"><input type="checkbox" name="is_active" value="1" <?= $d['is_active']?'checked':'' ?>> <span>Sitede görünür</span></label></div>
+    <div class="field field--full"><label class="check"><input type="checkbox" name="is_active" value="1" <?= $d['is_active']?'checked':'' ?>> <span>Sitede görünür</span></label>
+      <label class="check" style="margin-top:8px;"><input type="checkbox" name="is_sold" value="1" <?= !empty($d['is_sold'])?'checked':'' ?>> <span>Sahibini Buldu (satıldı — sepete eklenemez)</span></label></div>
   </div>
   <button class="btn btn--solid" style="margin-top:20px;"><?= $p?'Kaydet':'Ekle' ?></button>
 </form>

@@ -78,6 +78,26 @@ function products_all(?string $cat = null): array {
     }
     return $st->fetchAll();
 }
+/** Arama + filtre + sıralama */
+function products_list(array $o = []): array {
+    $w = ['is_active=1']; $p = [];
+    if (!empty($o['cat']))      { $w[] = 'cat_slug = ?'; $p[] = $o['cat']; }
+    if (!empty($o['material'])) { $w[] = 'material LIKE ?'; $p[] = '%' . $o['material'] . '%'; }
+    if (!empty($o['q'])) {
+        $q = '%' . $o['q'] . '%';
+        $w[] = '(name LIKE ? OR material LIKE ? OR story LIKE ? OR no_label LIKE ? OR charm LIKE ?)';
+        array_push($p, $q, $q, $q, $q, $q);
+    }
+    $order = 'sort';
+    switch ($o['sort'] ?? '') {
+        case 'price_asc':  $order = 'price ASC, sort'; break;
+        case 'price_desc': $order = 'price DESC, sort'; break;
+        case 'new':        $order = 'id DESC'; break;
+    }
+    $sql = 'SELECT * FROM products WHERE ' . implode(' AND ', $w) . ' ORDER BY ' . $order;
+    $st = db()->prepare($sql); $st->execute($p);
+    return $st->fetchAll();
+}
 function categories(): array {
     return db()->query('SELECT * FROM categories ORDER BY sort')->fetchAll();
 }

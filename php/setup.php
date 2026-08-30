@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS products (
     badge TEXT DEFAULT "",
     stock INTEGER DEFAULT 1,
     is_active INTEGER DEFAULT 1,
+    is_sold INTEGER DEFAULT 0,
     sort INTEGER DEFAULT 0
 );
 CREATE TABLE IF NOT EXISTS orders (
