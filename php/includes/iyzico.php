@@ -1,15 +1,24 @@
 <?php
 /** iyzico kredi kartı ödemesi (Checkout Form) */
 
-require_once __DIR__ . '/../lib/iyzipay/IyzipayBootstrap.php';
-IyzipayBootstrap::init(__DIR__ . '/../lib/iyzipay/src');
+/** iyzipay kütüphanesini gerektiğinde yükler; yoksa false döner */
+function iyzico_boot(): bool {
+    static $ok = null;
+    if ($ok !== null) return $ok;
+    $bs = __DIR__ . '/../lib/iyzipay/IyzipayBootstrap.php';
+    if (!is_file($bs)) return $ok = false;
+    require_once $bs;
+    IyzipayBootstrap::init(__DIR__ . '/../lib/iyzipay/src');
+    return $ok = true;
+}
 
-/** Kart ödemesi kullanılabilir mi? (anahtarlar girildi ve açık) */
+/** Kart ödemesi kullanılabilir mi? (kütüphane var, anahtarlar girildi ve açık) */
 function iyzico_enabled(): bool {
     if (!config('payment.card_enabled')) return false;
     $api = (string)config('payment.iyzico_api');
     $sec = (string)config('payment.iyzico_secret');
-    return $api !== '' && $sec !== '' && strpos($api, '{{') === false && strpos($sec, '{{') === false;
+    if ($api === '' || $sec === '' || strpos($api, '{{') !== false || strpos($sec, '{{') !== false) return false;
+    return iyzico_boot();
 }
 
 function iyzico_options(): \Iyzipay\Options {

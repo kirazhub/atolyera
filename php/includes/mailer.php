@@ -4,9 +4,17 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once __DIR__ . '/../lib/PHPMailer/Exception.php';
-require_once __DIR__ . '/../lib/PHPMailer/PHPMailer.php';
-require_once __DIR__ . '/../lib/PHPMailer/SMTP.php';
+/** PHPMailer dosyalarını gerektiğinde yükler; yoksa false döner */
+function mailer_available(): bool {
+    static $ok = null;
+    if ($ok !== null) return $ok;
+    $dir = __DIR__ . '/../lib/PHPMailer';
+    if (!is_file($dir . '/PHPMailer.php')) return $ok = false;
+    require_once $dir . '/Exception.php';
+    require_once $dir . '/PHPMailer.php';
+    require_once $dir . '/SMTP.php';
+    return $ok = true;
+}
 
 /**
  * E-posta gönderir. SMTP kapalıysa (config) sessizce false döner (site çökmez).
@@ -16,6 +24,10 @@ function send_mail(string $to, string $subject, string $htmlBody, ?string $toNam
     if (!config('smtp.enabled')) {
         // SMTP henüz ayarlı değil — siparişi kaydetmeye devam et, maili atlarız.
         error_log("[Atölye RA] SMTP kapalı, mail atlanmadı: $to / $subject");
+        return false;
+    }
+    if (!mailer_available()) {
+        error_log('[Atölye RA] PHPMailer kütüphanesi yüklü değil, mail atlandı.');
         return false;
     }
     $mail = new PHPMailer(true);
