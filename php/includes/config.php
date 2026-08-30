@@ -16,17 +16,17 @@ return [
     'timezone'     => 'Europe/Istanbul',
     'debug'        => false,                      // canlıda false, geliştirirken true
 
-    // --- Firma / yasal bilgiler (mesafeli sözleşme, KVKK, faturada görünür) ---
+    // --- Satıcı / yasal bilgiler (BİREYSEL — Raif Kurt) ---
     'company' => [
-        'title'      => 'REKA YAZILIM TURİZM TİCARET VE SANAYİ ANONİM ŞİRKETİ',
+        'title'      => 'Raif Kurt',
         'brand'      => 'Atölye RA',
-        'tax_office' => 'Gaziosmanpaşa',
-        'tax_no'     => '7341850622',             // Vergi Kimlik No
-        'mersis'     => '',                        // (opsiyonel) MERSİS no — e-Devlet'ten; boşsa yasal sayfada gösterilmez
-        'address'    => 'Mithatpaşa Mah. Bahçeköy Cad. No: 55 B17 İç Kapı No: 1, Eyüpsultan / İstanbul',
-        'phone'      => '+90 532 309 31 83',       // müşteri iletişim telefonu
+        'tax_office' => '',                        // bireysel — şahıs işletmesi vergi no varsa buraya
+        'tax_no'     => '',                        // (şahıs işletmesi vergi no / yoksa boş)
+        'mersis'     => '',
+        'address'    => 'Mithatpaşa Mah. Bahçeköy Cad. No: 55 B17 İç Kapı No: 1, Eyüpsultan / İstanbul', // SANA KALAN: bireysel adresini doğrula
+        'phone'      => '+90 532 309 31 83',
         'email'      => 'art@atolyera.com',
-        'kep'        => '',                        // SANA KALAN (opsiyonel): KEP adresi
+        'kep'        => '',
     ],
 
     // --- Sipariş bildirimi ---

@@ -11,7 +11,7 @@ $c = config('company');
   <p><strong>SATICI:</strong><br>
     Ünvan: <?= e($c['title']) ?><br>
     Adres: <?= e($c['address']) ?><br>
-    Vergi Dairesi / No: <?= e($c['tax_office']) ?> / <?= e($c['tax_no']) ?><br>
+    <?php if ($c['tax_no']): ?>Vergi Dairesi / No: <?= e($c['tax_office']) ?> / <?= e($c['tax_no']) ?><br><?php endif; ?>
     <?php if ($c['mersis']): ?>MERSİS No: <?= e($c['mersis']) ?><br><?php endif; ?>
     E-posta: <?= e($c['email']) ?><?php if ($c['phone']): ?> · Telefon: <?= e($c['phone']) ?><?php endif; ?><br>
     Web: atolyera.com

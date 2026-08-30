@@ -23,7 +23,7 @@ $c = config('company');
   <p>
     <strong>Ünvan:</strong> <?= e($c['title']) ?><br>
     <strong>Adres:</strong> <?= e($c['address']) ?><br>
-    <strong>Vergi Dairesi / No:</strong> <?= e($c['tax_office']) ?> / <?= e($c['tax_no']) ?><br>
+    <?php if ($c['tax_no']): ?><strong>Vergi Dairesi / No:</strong> <?= e($c['tax_office']) ?> / <?= e($c['tax_no']) ?><br><?php endif; ?>
     <?php if (!empty($c['mersis'])): ?><strong>MERSİS No:</strong> <?= e($c['mersis']) ?><br><?php endif; ?>
   </p>
 

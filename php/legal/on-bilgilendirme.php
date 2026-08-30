@@ -10,7 +10,7 @@ $c = config('company');
   <h2>Satıcı Bilgileri</h2>
   <p>Ünvan: <?= e($c['title']) ?><br>
      Adres: <?= e($c['address']) ?><br>
-     Vergi Dairesi / No: <?= e($c['tax_office']) ?> / <?= e($c['tax_no']) ?><br>
+     <?php if ($c['tax_no']): ?>Vergi Dairesi / No: <?= e($c['tax_office']) ?> / <?= e($c['tax_no']) ?><br><?php endif; ?>
      E-posta: <?= e($c['email']) ?><?php if ($c['phone']): ?> · Telefon: <?= e($c['phone']) ?><?php endif; ?></p>
 
   <h2>Ürün ve Fiyat</h2>
