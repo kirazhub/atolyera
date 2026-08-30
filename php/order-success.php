@@ -34,13 +34,14 @@ require __DIR__ . '/partials/header.php';
         ✦ Tam (özel) paketleme ile <strong>3 iş günü</strong> içinde kapınızda.
       </p>
 
-      <?php if (!$isCard): // Havale / EFT — para birimine göre IBAN ?>
+      <?php if (!$isCard): // Havale / EFT — TL hesabına ?>
         <div style="background:var(--ivory-2);padding:22px;margin:26px 0;text-align:left;">
-          <p style="font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bordeaux);margin:0 0 8px;">Havale / EFT ile Ödeme (<?= e($curLabel) ?>)</p>
+          <p style="font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bordeaux);margin:0 0 8px;">Havale / EFT ile Ödeme</p>
           <p style="font-family:var(--serif-text);font-size:17px;color:var(--graphite);margin:0;line-height:1.9;">
-            Hesap: <strong><?= e(config('bank_account_name')) ?></strong><br>
-            IBAN (<?= e($oc) ?>): <strong><?= e(currency_iban($oc)) ?></strong><br>
-            Tutar: <strong><?= money($order['total'], $oc) ?></strong><?php if ($oc !== 'TRY'): ?> <span style="color:var(--graphite-soft);font-size:14px;">(<?= money($order['total'], 'TRY') ?>)</span><?php endif; ?><br>
+            Hesap sahibi: <strong><?= e(config('bank_account_name')) ?></strong><br>
+            IBAN: <strong><?= e(currency_iban('TRY')) ?></strong><br>
+            Tutar: <strong><?= money($order['total'], 'TRY') ?></strong>
+            <?php if ($oc !== 'TRY'): ?><span style="color:var(--graphite-soft);font-size:14px;">(sitede <?= money($order['total'], $oc) ?> olarak gördünüz; havale TL olarak yapılır)</span><?php endif; ?><br>
             <span style="font-size:14px;color:var(--graphite-soft);">Açıklamaya sipariş numaranızı (<?= e($order['order_code']) ?>) yazınız. Ödemeniz onaylanınca kargolanır.</span>
           </p>
         </div>

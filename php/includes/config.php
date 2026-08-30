@@ -84,11 +84,12 @@ return [
     ],
 
     // --- Para birimleri (TL bazlı; USD/EUR günlük TCMB kuruyla çevrilir) ---
-    'bank_account_name' => 'REKA YAZILIM TURİZM TİC. VE SAN. A.Ş.',
+    // Havale hesabı bireysel (Raif Kurt) — sadece TL. Döviz siparişlerde TL karşılığı bu hesaba yatar.
+    'bank_account_name' => 'Raif Kurt',
     'currencies' => [
-        'TRY' => ['symbol' => '₺', 'label' => 'TL',  'iban' => 'TR48 0006 2000 4790 0006 2937 32'],
-        'USD' => ['symbol' => '$', 'label' => 'USD', 'iban' => 'TR47 0006 2000 4790 0009 0551 46'],
-        'EUR' => ['symbol' => '€', 'label' => 'EUR', 'iban' => 'TR74 0006 2000 4790 0009 0551 45'],
+        'TRY' => ['symbol' => '₺', 'label' => 'TL',  'iban' => 'TR62 0006 2000 4790 0006 6656 69'],
+        'USD' => ['symbol' => '$', 'label' => 'USD', 'iban' => 'TR62 0006 2000 4790 0006 6656 69'],
+        'EUR' => ['symbol' => '€', 'label' => 'EUR', 'iban' => 'TR62 0006 2000 4790 0006 6656 69'],
     ],
 
     // --- Satış noktaları / butikler (yerinde görüp almak isteyenler için) ---
