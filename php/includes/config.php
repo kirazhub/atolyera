@@ -36,7 +36,7 @@ return [
     'whatsapp' => [
         'contact_phone'    => '905323093183',       // müşterilerin ulaşacağı numara (wa.me linki)
         'contact_enabled'  => true,                 // sitede WhatsApp butonu göster
-        'contact_text'     => 'Merhaba Atölye RA 🌿 Hangi sanat eserini giymek istediğimi konuşmak istiyorum.', // link tıklanınca hazır gelen mesaj
+        'contact_text'     => 'Merhaba Atölye RA 🌿 Bana nasıl bir sanat eseri giydirebilirsiniz? Öneri almak istiyorum.', // link tıklanınca hazır gelen mesaj
         // Otomatik bildirim (CallMeBot ile — ücretsiz):
         'notify_enabled'   => false,                // apikey girince true yap
         'notify_phone'     => '905323093183',       // siparişin düşeceği numaran
