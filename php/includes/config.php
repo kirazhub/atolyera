@@ -22,9 +22,9 @@ return [
         'brand'      => 'Atölye RA',
         'tax_office' => 'Gaziosmanpaşa',
         'tax_no'     => '7341850622',             // Vergi Kimlik No
-        'mersis'     => '{{MERSİS_NO}}',           // SANA KALAN: MERSİS no (16 hane) — ticaret sicil/e-Devlet'ten
+        'mersis'     => '',                        // (opsiyonel) MERSİS no — e-Devlet'ten; boşsa yasal sayfada gösterilmez
         'address'    => 'Mithatpaşa Mah. Bahçeköy Cad. No: 55 B17 İç Kapı No: 1, Eyüpsultan / İstanbul',
-        'phone'      => '{{TELEFON}}',             // SANA KALAN: müşteri iletişim telefonu
+        'phone'      => '+90 532 309 31 83',       // müşteri iletişim telefonu
         'email'      => 'art@atolyera.com',
         'kep'        => '',                        // SANA KALAN (opsiyonel): KEP adresi
     ],
