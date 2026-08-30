@@ -43,16 +43,15 @@ return [
         'callmebot_apikey' => '{{CALLMEBOT_APIKEY}}', // SANA KALAN: bkz. KURULUM.txt (tek seferlik onay)
     ],
 
-    // --- SMTP (e-posta gönderimi) — HOSTINGER için önceden ayarlandı ---
-    // Hostinger'da art@atolyera.com e-posta hesabını oluştur, SADECE şifresini aşağıya yaz
-    // ve 'enabled' => true yap. (hPanel > E-postalar > E-posta Hesapları)
+    // --- SMTP (e-posta gönderimi) — GOOGLE WORKSPACE ---
+    // art@atolyera.com Google Workspace'te. Normal şifre DEĞİL, "Uygulama Şifresi" (App Password) gerekir.
     'smtp' => [
-        'enabled'   => false,                     // SANA KALAN: şifreyi girince true yap
-        'host'      => 'smtp.hostinger.com',      // Hostinger e-posta SMTP sunucusu
-        'port'      => 465,                        // 465=SSL (Hostinger önerisi)
-        'secure'    => 'ssl',
+        'enabled'   => false,                     // App Password girince true yap
+        'host'      => 'smtp.gmail.com',          // Google SMTP
+        'port'      => 587,                        // 587 = TLS
+        'secure'    => 'tls',
         'username'  => 'art@atolyera.com',
-        'password'  => '{{EPOSTA_ŞİFRESİ}}',      // SANA KALAN: Hostinger mail şifresi
+        'password'  => '{{GOOGLE_APP_PASSWORD}}',  // SANA KALAN: 16 haneli Uygulama Şifresi
         'from'      => 'art@atolyera.com',
         'from_name' => 'Atölye RA',
     ],
@@ -67,10 +66,11 @@ return [
     // --- Ödeme ---
     'payment' => [
         // Kredi kartı (iyzico) — TL olarak tahsil edilir
-        'card_enabled'  => false,
-        'iyzico_api'    => '{{IYZICO_API_KEY}}',       // SANA KALAN: iyzico API Key
-        'iyzico_secret' => '{{IYZICO_SECRET_KEY}}',    // SANA KALAN: iyzico Secret Key
-        'iyzico_base'   => 'https://api.iyzipay.com',  // canlı. Test: https://sandbox-api.iyzipay.com
+        'card_enabled'  => false,                      // anahtarları girince true yap
+        'sandbox'       => true,                        // TEST için true; gerçek satışa geçince false yap
+        'iyzico_api'    => '{{IYZICO_API_KEY}}',        // SANA KALAN: iyzico API Key (test veya canlı)
+        'iyzico_secret' => '{{IYZICO_SECRET_KEY}}',     // SANA KALAN: iyzico Secret Key
+        'iyzico_base'   => 'https://api.iyzipay.com',   // (sandbox=true iken otomatik sandbox adresi kullanılır)
         // Havale / EFT
         'bank_enabled'  => true,
     ],

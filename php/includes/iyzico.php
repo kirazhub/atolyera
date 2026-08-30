@@ -25,7 +25,11 @@ function iyzico_options(): \Iyzipay\Options {
     $o = new \Iyzipay\Options();
     $o->setApiKey(config('payment.iyzico_api'));
     $o->setSecretKey(config('payment.iyzico_secret'));
-    $o->setBaseUrl(config('payment.iyzico_base', 'https://api.iyzipay.com'));
+    // sandbox=true ise test sunucusu, değilse canlı
+    $base = config('payment.sandbox')
+        ? 'https://sandbox-api.iyzipay.com'
+        : config('payment.iyzico_base', 'https://api.iyzipay.com');
+    $o->setBaseUrl($base);
     return $o;
 }
 
