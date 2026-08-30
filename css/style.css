@@ -848,3 +848,28 @@ img{ display:block; max-width:100%; }
   .talisman__glyph{ height:200px; }
   .talisman__glyph img{ max-height:200px; }
 }
+
+/* Kumaş & Format notu (ürün altı) */
+.piece__fabric{
+  font-size:13px;
+  letter-spacing:.015em;
+  line-height:1.7;
+  color:var(--graphite-soft);
+  margin:-16px 0 30px;
+  padding-top:14px;
+  border-top:1px solid rgba(26,26,26,.08);
+}
+.piece__fabric span{
+  display:inline-block;
+  font-family:'Jost',sans-serif;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#5C1A1B;
+  margin-right:8px;
+}
+.piece__fabric a{
+  color:#5C1A1B;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
