@@ -40,6 +40,23 @@ $cartN      = cart_count();
 
   <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
   <link rel="stylesheet" href="<?= asset('css/shop.css') ?>">
+
+  <meta name="google-site-verification" content="mXsoROE7EtKlPsS2gYWDoqI_tcNQ_hRE8vdbAi6OYFA">
+  <link rel="sitemap" type="application/xml" href="<?= asset('sitemap.xml') ?>">
+  <script type="application/ld+json">
+<?= json_encode([
+  '@context' => 'https://schema.org',
+  '@graph' => [
+    [ '@type' => 'Organization', '@id' => site_url().'#org', 'name' => 'Atölye RA',
+      'url' => site_url(), 'logo' => site_url('images/logo-dark.png'),
+      'email' => config('company.email'),
+      'description' => 'Giyilebilir sanat: ipek saten, saten, viskon ve TENCEL üzerine elde işlenmiş lüks kimono ve sabahlık.',
+      'contactPoint' => ['@type'=>'ContactPoint','email'=>config('company.email'),'contactType'=>'customer support','areaServed'=>'TR','availableLanguage'=>['Turkish']] ],
+    [ '@type' => 'WebSite', '@id' => site_url().'#site', 'url' => site_url(), 'name' => 'Atölye RA',
+      'inLanguage' => 'tr-TR', 'publisher' => ['@id'=>site_url().'#org'] ],
+  ],
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>
+  </script>
 </head>
 <body>
   <a href="#top" id="top"></a>

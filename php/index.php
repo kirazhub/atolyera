@@ -20,6 +20,13 @@ $tilsim   = array_slice(products_all('seri'), 0, 3);
   </p>
 </section>
 
+<div class="trust">
+  <div><p class="t">Elde İşçilik</p><p class="d">Usta terzi, tek tek</p></div>
+  <div><p class="t">3 İş Günü</p><p class="d">Tam paketleme ile kapında</p></div>
+  <div><p class="t">Güvenli Ödeme</p><p class="d">Havale & kart</p></div>
+  <div><p class="t">14 Gün İade</p><p class="d">Koşulsuz cayma hakkı</p></div>
+</div>
+
 <div class="grid-wrap">
   <div class="mini-head" style="margin-bottom:40px;">
     <p class="page-hero__kicker">Sanat Baskı Koleksiyonu</p>

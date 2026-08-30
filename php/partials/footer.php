@@ -6,6 +6,8 @@
       <a href="<?= url('/kategori/baski') ?>">Sanat Baskı</a> ·
       <a href="<?= url('/kategori/tilsim') ?>">Tılsım</a> ·
       <a href="<?= url('/kategori/seri') ?>">Tılsım Serisi</a> ·
+      <a href="<?= url('/hakkimizda') ?>">Hakkımızda</a> ·
+      <a href="<?= url('/sss') ?>">SSS</a> ·
       <a href="<?= url('/satis-noktalari') ?>">Satış Noktaları</a> ·
       <a href="<?= url('/iletisim') ?>">İletişim</a> ·
       <a href="<?= url('/sepet') ?>">Sepet</a>
@@ -29,6 +31,12 @@
   </a>
   <?php endif; ?>
 
+  <div class="cookie" id="cookieBar" hidden>
+    <span>Bu sitede yalnızca çalışması için gerekli çerezleri kullanıyoruz.
+      <a href="<?= url('/yasal/cerez') ?>">Çerez Politikası</a>.</span>
+    <button type="button" id="cookieOk">Tamam</button>
+  </div>
+
   <script>
     // Mobil menü aç/kapa + link tıklanınca kapan
     (function(){
@@ -47,6 +55,15 @@
       var nav=document.getElementById('nav');
       function s(){ if(!nav)return; nav.classList.toggle('is-scrolled', window.scrollY>40); }
       s(); window.addEventListener('scroll', s, {passive:true});
+    })();
+    // Çerez onayı
+    (function(){
+      try{
+        var bar=document.getElementById('cookieBar'), ok=document.getElementById('cookieOk');
+        if(!bar) return;
+        if(!localStorage.getItem('ra_cookie_ok')) bar.hidden=false;
+        if(ok) ok.addEventListener('click',function(){ localStorage.setItem('ra_cookie_ok','1'); bar.hidden=true; });
+      }catch(e){}
     })();
   </script>
 </body>

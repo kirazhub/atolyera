@@ -21,6 +21,9 @@ DirectoryIndex index.php index.html
     RewriteRule ^odeme/?$                   checkout.php            [L]
     RewriteRule ^satis-noktalari/?$         stores.php              [L]
     RewriteRule ^iletisim/?$                iletisim.php            [L]
+    RewriteRule ^hakkimizda/?$              hakkimizda.php          [L]
+    RewriteRule ^sss/?$                     sss.php                 [L]
+    RewriteRule ^sitemap\.xml$              sitemap.php             [L]
     RewriteRule ^siparis-tamam/?$           order-success.php       [L,QSA]
     RewriteRule ^yasal/([a-z0-9-]+)/?$      legal/$1.php            [L,QSA]
 </IfModule>
