@@ -304,3 +304,10 @@
   text-transform:uppercase; color:var(--bordeaux); margin:18px auto 0;
   max-width:640px; line-height:1.9;
 }
+
+/* Mobil menü: düğme üstte kalsın, açıkken arka plan kaymasın */
+@media (max-width:860px){
+  .nav{ z-index:90; }
+  .nav__links{ z-index:80; }
+  body.nav-open{ overflow:hidden; }
+}

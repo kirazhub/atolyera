@@ -29,10 +29,17 @@
   <?php endif; ?>
 
   <script>
-    // Mobil menü
+    // Mobil menü aç/kapa + link tıklanınca kapan
     (function(){
       var b=document.getElementById('menuBtn'), n=document.getElementById('navLinks');
-      if(b&&n) b.addEventListener('click',function(){n.classList.toggle('is-open');b.classList.toggle('is-open');});
+      if(!b||!n) return;
+      function close(){ n.classList.remove('is-open'); b.classList.remove('is-open'); document.body.classList.remove('nav-open'); }
+      function toggle(){ n.classList.toggle('is-open'); b.classList.toggle('is-open'); document.body.classList.toggle('nav-open'); }
+      b.addEventListener('click', toggle);
+      // Menüdeki her linke basınca menü kapansın (yukarı kayıp kaybolsun)
+      n.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+      // Menü açıkken sayfanın boş bir yerine dokununca da kapansın
+      n.addEventListener('click', function(e){ if(e.target===n) close(); });
     })();
     // Scroll ile üst barı koyulaştır
     (function(){
