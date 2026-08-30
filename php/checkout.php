@@ -3,11 +3,12 @@
 require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/mailer.php';
 require_once __DIR__ . '/includes/iyzico.php';
+require_once __DIR__ . '/includes/shopier.php';
 
 $items = cart_items();
 if (!$items) { flash_set('info', 'Sepetiniz boş.'); redirect('/sepet'); }
 
-$cardOn = iyzico_enabled();
+$cardOn = iyzico_enabled() || shopier_enabled();
 $bankOn = (bool)config('payment.bank_enabled');
 
 $errors = [];
@@ -68,15 +69,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       'payment_method'=>$method,'display_currency'=>$cur,'fx_rate'=>$rate,'display_total'=>$dispTotal];
 
             if ($method === 'card') {
-                // iyzico Checkout Form başlat → ödeme sayfasına yönlendir (sepet ödeme sonrası temizlenir)
-                $init = iyzico_init_checkout($order, $items);
-                if (!empty($init['ok'])) {
-                    db()->prepare('UPDATE orders SET iyzico_token=? WHERE id=?')->execute([$init['token'], $oid]);
+                if (iyzico_enabled()) {
+                    // iyzico Checkout Form → ödeme sayfasına yönlendir
+                    $init = iyzico_init_checkout($order, $items);
+                    if (!empty($init['ok'])) {
+                        db()->prepare('UPDATE orders SET iyzico_token=? WHERE id=?')->execute([$init['token'], $oid]);
+                        $_SESSION['pending_order'] = $code;
+                        redirect($init['url']);
+                    }
+                    db()->prepare("UPDATE orders SET payment_status='basarisiz' WHERE id=?")->execute([$oid]);
+                    $errors['form'] = 'Kart ödemesi başlatılamadı: ' . ($init['error'] ?? '') . ' Havale ile deneyebilirsiniz.';
+                } elseif (shopier_enabled()) {
+                    // Shopier ödeme sayfasına yönlendir (auto-submit)
                     $_SESSION['pending_order'] = $code;
-                    redirect($init['url']);
+                    redirect('/shopier-pay.php?order=' . urlencode($code));
+                } else {
+                    $errors['form'] = 'Kart ödemesi şu an kapalı. Havale ile devam edebilirsiniz.';
                 }
-                db()->prepare("UPDATE orders SET payment_status='basarisiz' WHERE id=?")->execute([$oid]);
-                $errors['form'] = 'Kart ödemesi başlatılamadı: ' . ($init['error'] ?? '') . ' Havale ile deneyebilirsiniz.';
             } else {
                 // Havale/EFT — sipariş alındı, onay e-postaları + WhatsApp bildirimi
                 $sent = send_mail($old['email'], 'Siparişiniz Alındı — ' . $code, order_email_html($order, $items), $old['name']);
@@ -144,7 +153,7 @@ require __DIR__ . '/partials/header.php';
         <?php if ($cardOn): ?>
           <label class="check" style="align-items:center;">
             <input type="radio" name="method" value="card" <?= $defCard?'checked':'' ?>>
-            <span><strong>Kredi / Banka Kartı</strong> — güvenli ödeme (iyzico). Kart bilgileri bizde saklanmaz.</span>
+            <span><strong>Kredi / Banka Kartı</strong> — güvenli ödeme. Kart bilgileri bizde saklanmaz.</span>
           </label>
         <?php endif; ?>
         <?php if ($bankOn): ?>

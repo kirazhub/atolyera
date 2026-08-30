@@ -7,6 +7,7 @@
       <a href="<?= url('/kategori/tilsim') ?>">Tılsım</a> ·
       <a href="<?= url('/kategori/seri') ?>">Tılsım Serisi</a> ·
       <a href="<?= url('/satis-noktalari') ?>">Satış Noktaları</a> ·
+      <a href="<?= url('/iletisim') ?>">İletişim</a> ·
       <a href="<?= url('/sepet') ?>">Sepet</a>
     </p>
     <p class="footer__nav footer__nav--legal">

@@ -75,6 +75,14 @@ return [
         'bank_enabled'  => true,
     ],
 
+    // --- Shopier (kredi kartı — iyzico alternatifi) ---
+    'shopier' => [
+        'enabled'       => false,                       // anahtarları girince true yap
+        'api_key'       => '{{SHOPIER_API_KEY}}',       // SANA KALAN: Shopier API Kullanıcı/Key
+        'api_secret'    => '{{SHOPIER_API_SECRET}}',    // SANA KALAN: Shopier API Şifre/Secret
+        'website_index' => 1,                            // Shopier'da tek site ise 1
+    ],
+
     // --- Para birimleri (TL bazlı; USD/EUR günlük TCMB kuruyla çevrilir) ---
     'bank_account_name' => 'REKA YAZILIM TURİZM TİC. VE SAN. A.Ş.',
     'currencies' => [
