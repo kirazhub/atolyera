@@ -57,7 +57,7 @@ return [
     ],
 
     // --- Yönetim paneli ---
-    // Giriş: kullanıcı adı RA · şifre veritabanında (varsayılan 1234568)
+    // Giriş: kullanıcı adı RA · şifre veritabanında (bcrypt) saklanır, panelden değiştirilir.
     'admin' => [
         'user' => 'RA',
     ],
