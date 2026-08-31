@@ -24,7 +24,7 @@ return [
         'tax_no'     => '',                        // (şahıs işletmesi vergi no / yoksa boş)
         'mersis'     => '',
         'address'    => 'Mithatpaşa Mah. Bahçeköy Cad. No: 55 B17 İç Kapı No: 1, Eyüpsultan / İstanbul', // SANA KALAN: bireysel adresini doğrula
-        'phone'      => '+90 532 309 31 83',
+        'phone'      => '+90 532 309 13 83',
         'email'      => 'art@atolyera.com',
         'kep'        => '',
     ],
@@ -34,12 +34,12 @@ return [
 
     // --- WhatsApp ---
     'whatsapp' => [
-        'contact_phone'    => '905323093183',       // müşterilerin ulaşacağı numara (wa.me linki)
+        'contact_phone'    => '905323091383',       // müşterilerin ulaşacağı numara (wa.me linki)
         'contact_enabled'  => true,                 // sitede WhatsApp butonu göster
         'contact_text'     => 'Merhaba Atölye RA 🌿 Bana nasıl bir sanat eseri giydirebilirsiniz? Öneri almak istiyorum.', // link tıklanınca hazır gelen mesaj
         // Otomatik bildirim (CallMeBot ile — ücretsiz):
         'notify_enabled'   => false,                // apikey girince true yap
-        'notify_phone'     => '905323093183',       // siparişin düşeceği numaran
+        'notify_phone'     => '905323091383',       // siparişin düşeceği numaran
         'callmebot_apikey' => '{{CALLMEBOT_APIKEY}}', // SANA KALAN: bkz. KURULUM.txt (tek seferlik onay)
     ],
 

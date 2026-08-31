@@ -10,7 +10,7 @@ if (!function_exists('custom_config')) {
             'price_usd'    => 2250,
             'discount_pct' => 10,          // siteden havale ile ödeyene her gün
             'lead_time'    => '3 hafta',
-            'phone'        => '905323093183', // Özel Üretim WhatsApp hattı
+            'phone'        => '905323091383', // Özel Üretim WhatsApp hattı
             'free_ship'    => true,
         ];
     }
